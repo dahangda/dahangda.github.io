@@ -6,23 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>ios证书与签名机制 | 燕航的博客，感谢访问哈！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
-什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对">
+  <meta name="description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ios证书与签名机制">
 <meta property="og:url" content="http://yoursite.com/2016/10/19/ios证书与签名机制/index.html">
 <meta property="og:site_name" content="燕航的博客，感谢访问哈！">
-<meta property="og:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
-什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对">
+<meta property="og:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/adaf2edda3cc7cd99b2962d73901213fb80e91b3.jpg">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C.png">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/A246F028-E734-4457-9541-325BCF503061.png">
-<meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C-2.png">
-<meta property="og:updated_time" content="2016-10-19T17:41:49.000Z">
+<meta property="og:updated_time" content="2016-10-19T17:47:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios证书与签名机制">
-<meta name="twitter:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
-什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对">
+<meta name="twitter:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。">
 <meta name="twitter:image" content="http://of6e0nb1h.bkt.clouddn.com/adaf2edda3cc7cd99b2962d73901213fb80e91b3.jpg">
   
     <link rel="alternative" href="/atom.xml" title="燕航的博客，感谢访问哈！" type="application/atom+xml">
@@ -165,11 +161,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。</p>
-<h2 id="什么是非对称密钥加密？"><a href="#什么是非对称密钥加密？" class="headerlink" title="什么是非对称密钥加密？"></a>什么是非对称密钥加密？</h2><p>  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对密钥的生成者才能拥有。<br><a id="more"></a></p>
-<h3 id="非对称密钥的特性"><a href="#非对称密钥的特性" class="headerlink" title="非对称密钥的特性"></a>非对称密钥的特性</h3><pre><code>一个私钥对应一个公钥，公钥可以分发多人
+        <p>接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。<br><a id="more"></a></p>
+<h2 id="什么是非对称密钥加密？"><a href="#什么是非对称密钥加密？" class="headerlink" title="什么是非对称密钥加密？"></a>什么是非对称密钥加密？</h2><p>  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对密钥的生成者才能拥有。</p>
+<h4 id="非对称密钥的特性"><a href="#非对称密钥的特性" class="headerlink" title="非对称密钥的特性"></a>非对称密钥的特性</h4><pre><code>一个私钥对应一个公钥，公钥可以分发多人
 一个公钥加密后的密文可以通过私钥进行解密，一个私钥加密的密文可以通过公钥进行解密
-</code></pre><h3 id="私钥公钥加密有两种典型的用法："><a href="#私钥公钥加密有两种典型的用法：" class="headerlink" title="私钥公钥加密有两种典型的用法："></a>私钥公钥加密有两种典型的用法：</h3><p>  对信息保密，将明文经过公钥进行加密，传送给他人，只有拥有私钥的才能解密进行阅读。<br> 身份的认证，信息的完整性。 一是能确定消息确实是由发送方签名并发出来的，因为别人假冒不了发送方的私钥【私钥的唯一性出现冒出的话公钥无法使用】，二是数字签名能确定消息的完整性。因为数字签名中是文件的特征，文件如果发生改变，数字摘要的值也将发生变化。【摘要的唯一性】</p>
+</code></pre><h4 id="私钥公钥加密有两种典型的用法："><a href="#私钥公钥加密有两种典型的用法：" class="headerlink" title="私钥公钥加密有两种典型的用法："></a>私钥公钥加密有两种典型的用法：</h4><p>  对信息保密，将明文经过公钥进行加密，传送给他人，只有拥有私钥的才能解密进行阅读。<br> 身份的认证，信息的完整性。 一是能确定消息确实是由发送方签名并发出来的，因为别人假冒不了发送方的私钥【私钥的唯一性出现冒出的话公钥无法使用】，二是数字签名能确定消息的完整性。因为数字签名中是文件的特征，文件如果发生改变，数字摘要的值也将发生变化。【摘要的唯一性】</p>
 <h2 id="什么是摘要算法？"><a href="#什么是摘要算法？" class="headerlink" title="什么是摘要算法？"></a>什么是摘要算法？</h2><p>摘要算法是指，可以将任意长度的文本，通过一个算法，得到一个固定长度的文本。</p>
 <h4 id="摘要算法具有以下重要特性："><a href="#摘要算法具有以下重要特性：" class="headerlink" title="摘要算法具有以下重要特性："></a>摘要算法具有以下重要特性：</h4><pre><code>- 只要源文本不同，计算得到的结果，必然不同
 - 无法从结果反推出源
@@ -183,8 +179,9 @@
 <h4 id="生成的CSR文件包括"><a href="#生成的CSR文件包括" class="headerlink" title="生成的CSR文件包括"></a>生成的CSR文件包括</h4><ul>
 <li>申请者信息，此信息是用申请者的私钥加密的</li>
 <li>申请者公钥，此信息是申请者使用的私钥对应的公钥</li>
-<li>摘要算法和公钥加密算法<h2 id="申请的证书包含什么？"><a href="#申请的证书包含什么？" class="headerlink" title="申请的证书包含什么？"></a>申请的证书包含什么？</h2>苹果取出CertificateSigningRequest.certSigningRequest中的公钥，根本不管我的其他信息，然后将我的MC账号信息和我提交的公钥封装在证书中，并进行数字签名（用apple的私钥）。双击安装证书后可看见下图<br><img src="http://of6e0nb1h.bkt.clouddn.com/A246F028-E734-4457-9541-325BCF503061.png" alt="证书"></li>
+<li>摘要算法和公钥加密算法</li>
 </ul>
+<h2 id="申请的证书包含什么？"><a href="#申请的证书包含什么？" class="headerlink" title="申请的证书包含什么？"></a>申请的证书包含什么？</h2><p>苹果取出CertificateSigningRequest.certSigningRequest中的公钥，根本不管我的其他信息，然后将我的MC账号信息和我提交的公钥封装在证书中，并进行数字签名（用apple的私钥）。双击安装证书后可看见下图<br><img src="http://of6e0nb1h.bkt.clouddn.com/A246F028-E734-4457-9541-325BCF503061.png" alt="证书"></p>
 <p>这个证书里有一个公钥，对应一个私钥,<br>后续在程序上真机的过程中，会使用这个私钥，对代码进行签名，而公钥会附带在mobileprovision文件中，打包进app。<br>所以当有证书，然后没有私钥证书，也是没有用的，需要证书的公钥与电脑的私钥关联起来。</p>
 <h2 id="多人开发怎么解决一机一私钥的问题呢？"><a href="#多人开发怎么解决一机一私钥的问题呢？" class="headerlink" title="多人开发怎么解决一机一私钥的问题呢？"></a>多人开发怎么解决一机一私钥的问题呢？</h2><p>  给出的解决方案就是“私钥导出”。没错，既然问题的关键是私钥，我们共享私钥不就行了，将最初申请证书的机器的私钥导出成.p12文件，并让其他机器导入，同时其他机器也应该安装下载下来的证书。<br>  由于iOS证书有多种类型，用于不同的用处，所以我们可能后续还会去MC上申请别的证书。所以强烈建议CertificateSigningRequest.certSigningRequest需要保留，因为如果再次生成CertificateSigningRequest.certSigningRequest文件，可能就是对应另一个私钥了！还需要在共享一次私钥，会比较麻烦。</p>
 <h2 id="申请证书有哪些类型呢？"><a href="#申请证书有哪些类型呢？" class="headerlink" title="申请证书有哪些类型呢？"></a>申请证书有哪些类型呢？</h2><h4 id="因为用途不一样所以证书的类型有很多种。"><a href="#因为用途不一样所以证书的类型有很多种。" class="headerlink" title="因为用途不一样所以证书的类型有很多种。"></a>因为用途不一样所以证书的类型有很多种。</h4><pre><code>iOS App Development。开发、真机调试用
@@ -193,16 +190,13 @@ App Store and Ad Hoc。上架和AdHoc方式发布时用
 Apple Push Notification service SSL (Production)。上架后使用苹果推送服务
 InHouse。企业版发布，需$299才能拥有，还需邓氏编码
 </code></pre><h2 id="描述文件【mobileprovision】"><a href="#描述文件【mobileprovision】" class="headerlink" title="描述文件【mobileprovision】"></a>描述文件【mobileprovision】</h2><h3 id="mobileprovision文件包含："><a href="#mobileprovision文件包含：" class="headerlink" title="mobileprovision文件包含："></a>mobileprovision文件包含：</h3><ul>
-<li>AppId.每个app必须在MC中创建一个对应的AppId。规则不累述了。<ul>
+<li>AppId.每个app必须在MC中创建一个对应的AppId。规则不累述了。</li>
 <li>使用哪些证书。上面说了，不同类型的证书就代表了不同的发布方式，还包括一些功能的能否使用（比如APN）</li>
 <li>功能授权列表</li>
 <li>可安装的设备列表。对于AdHoc方式发布的app或者真机调试时，会有一个列表，这个列表里面是iOS设备的UDID，每台iOS设备出厂的UDID都不同，所以可以用来标识设备。可通过iTunes连接设备，或者<a href="http://fir.im/udid这里获取" target="_blank" rel="external">http://fir.im/udid这里获取</a></li>
 <li>苹果的签名</li>
 </ul>
-</li>
-</ul>
 <h2 id="AdHoc发布和真机调试"><a href="#AdHoc发布和真机调试" class="headerlink" title="AdHoc发布和真机调试"></a>AdHoc发布和真机调试</h2><p>  AdHoc允许将测试版app发布给有限的设备安装，而无需通过appstore的审核。这里的关键是如何控制哪些设备可以装。答案就是mobileprovision文件，记得你在生成mobileprovision文件的时候需要选设备的UDID吧，所以这些设备需要事先添加到MC的Devices里面。对于开发时候的真机调试，原理差不多。都是通过mobileprovision的条目4来做到的。而苹果对于调试和测试用机的数量限制为100台！</p>
-<h2 id="整体打包流程图"><a href="#整体打包流程图" class="headerlink" title="整体打包流程图"></a>整体打包流程图</h2><p><img src="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C-2.png" alt="流程图"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://foggry.com/blog/2014/10/16/ios-code-signing-xue-xi-bi-ji/" target="_blank" rel="external">iOS Code Signing 学习笔记</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html" target="_blank" rel="external">数字签名是什么？</a></li>
