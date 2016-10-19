@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C.png">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/A246F028-E734-4457-9541-325BCF503061.png">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C-2.png">
-<meta property="og:updated_time" content="2016-10-19T17:14:45.000Z">
+<meta property="og:updated_time" content="2016-10-19T17:25:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios证书与签名机制">
 <meta name="twitter:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
@@ -199,15 +199,14 @@
 <h2 id="什么是数字证书？"><a href="#什么是数字证书？" class="headerlink" title="什么是数字证书？"></a>什么是数字证书？</h2><ul>
 <li><p>首先数字证书和我们平常用的证书在功能方面有一定的相似。生活中用的证书，如大学毕业证书，这个是机构颁发，向用人单位证明，我是什么学校毕业的。让用人单位相信你。数字证书就是，比如苹果公司就可以签发跟苹果公司有关的证书，而跟web访问有关的证书则是又几家公认的机构进行签发。这些签发机构称为CA（Certificate Authority）。验证方是ios设备，以及浏览器。这个已经写在ios设备上。</p>
 <h2 id="什么是证书授权链？"><a href="#什么是证书授权链？" class="headerlink" title="什么是证书授权链？"></a>什么是证书授权链？</h2><ul>
-<li><p>苹果MC（Member Center）中获得的证书实际也是一个包含有证书链的证书，其中的根是苹果的CA。我们获得的证书实际上是在告诉iOS设备：我们的证书是被苹果CA签过名的合法的证书。而iOS设备在执行app前，首先要先验证CA的签名是否合法，然后再通过证书中我们的公钥验证程序是否的确是我们发布的，且中途没有对程序进行过篡改。<br>##ios开发需要申请证书，并且需要签名，下图是一个别人画的流程图可以参看</p>
-</li>
+<li><p>苹果MC（Member Center）中获得的证书实际也是一个包含有证书链的证书，其中的根是苹果的CA。我们获得的证书实际上是在告诉iOS设备：我们的证书是被苹果CA签过名的合法的证书。而iOS设备在执行app前，首先要先验证CA的签名是否合法，然后再通过证书中我们的公钥验证程序是否的确是我们发布的，且中途没有对程序进行过篡改。</p>
+<h2 id="ios开发需要申请证书，并且需要签名，下图是一个别人画的流程图可以参看"><a href="#ios开发需要申请证书，并且需要签名，下图是一个别人画的流程图可以参看" class="headerlink" title="ios开发需要申请证书，并且需要签名，下图是一个别人画的流程图可以参看"></a>ios开发需要申请证书，并且需要签名，下图是一个别人画的流程图可以参看</h2></li>
 <li><p>先申请证书，ios设备对证书认证，取出里面的公钥，对经私钥签名的代码以及资源进行解密，确保安全后安装。<br><img src="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C.png" alt="流程图"></p>
 </li>
 </ul>
 </li>
 </ul>
-<p>##怎么才能申请iOS证书呢？</p>
-<ul>
+<h2 id="怎么才能申请iOS证书呢？"><a href="#怎么才能申请iOS证书呢？" class="headerlink" title="怎么才能申请iOS证书呢？"></a>怎么才能申请iOS证书呢？</h2><ul>
 <li>我们知道，如果我们开发ios程序，必须成为ios开发者，不然只能在模拟器上跑程序，并且也不能发布，只有成为开发者才能有权限申请证书。并且将证书安装到xcode，xcode信任此证书才能用我们自己的私钥进行代码签名。</li>
 <li>成为开发者条件：支付$99或$299成为苹果开发者，并每年续费。99的个人和小企业够用了，至于差别可看<a href="http://www.zhihu.com/question/20971117/answer/16760250" target="_blank" rel="external">知乎</a>。</li>
 <li>成为开发者后通过过keychain生成一个CSR文件，提交给苹果的Apple Worldwide Developer Relations Certification Authority(WWDR)证书认证中心进行签名最后得到一个证书，从苹果官网下载并安装使用。<h3 id="生成的CSR文件包括"><a href="#生成的CSR文件包括" class="headerlink" title="生成的CSR文件包括"></a>生成的CSR文件包括</h3><ul>
@@ -218,8 +217,7 @@
 </li>
 </ul>
 <p>这个证书对应一个私钥。<br>后续在程序上真机的过程中，会使用这个私钥，对代码进行签名，而公钥会附带在mobileprovision文件中，打包进app。<br>所以当有证书，然后没有私钥证书，也是没有用的，需要证书的公钥与电脑的私钥关联起来。</p>
-<p>##多人开发怎么解决一机一私钥的问题呢？</p>
-<ul>
+<h2 id="多人开发怎么解决一机一私钥的问题呢？"><a href="#多人开发怎么解决一机一私钥的问题呢？" class="headerlink" title="多人开发怎么解决一机一私钥的问题呢？"></a>多人开发怎么解决一机一私钥的问题呢？</h2><ul>
 <li>给出的解决方案就是“私钥导出”。没错，既然问题的关键是私钥，我们共享私钥不就行了，将最初申请证书的机器的私钥导出成.p12文件，并让其他机器导入，同时其他机器也应该安装下载下来的证书。</li>
 <li>由于iOS证书有多种类型，用于不同的用处，所以我们可能后续还会去MC上申请别的证书。所以强烈建议CertificateSigningRequest.certSigningRequest需要保留，因为如果再次生成CertificateSigningRequest.certSigningRequest文件，可能就是对应另一个私钥了！还需要在共享一次私钥，会比较麻烦。</li>
 <li><h2 id="申请证书有哪些类型呢？"><a href="#申请证书有哪些类型呢？" class="headerlink" title="申请证书有哪些类型呢？"></a>申请证书有哪些类型呢？</h2><ul>
@@ -262,7 +260,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/签名/">签名</a></li></ul>
 	</div>
 
       
@@ -370,7 +368,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/ios/" style="font-size: 10px;">ios</a>
+    				<a href="/tags/KVO/" style="font-size: 10px;">KVO</a> <a href="/tags/签名/" style="font-size: 10px;">签名</a>
     			</div>
     	</section>
     
