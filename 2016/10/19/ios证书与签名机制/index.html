@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ios证书与签名机制 | 燕航的博客，感谢访问哈！</title>
+  <title>ios证书与签名机制 | 燕航的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
-什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对">
+什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ios证书与签名机制">
 <meta property="og:url" content="http://yoursite.com/2016/10/19/ios证书与签名机制/index.html">
-<meta property="og:site_name" content="燕航的博客，感谢访问哈！">
+<meta property="og:site_name" content="燕航的博客">
 <meta property="og:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
-什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对">
+什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/adaf2edda3cc7cd99b2962d73901213fb80e91b3.jpg">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C.png">
 <meta property="og:image" content="http://of6e0nb1h.bkt.clouddn.com/A246F028-E734-4457-9541-325BCF503061.png">
-<meta property="og:updated_time" content="2016-10-27T16:17:10.000Z">
+<meta property="og:updated_time" content="2016-10-28T16:22:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ios证书与签名机制">
 <meta name="twitter:description" content="接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。
-什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对">
+什么是非对称密钥加密？  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这">
 <meta name="twitter:image" content="http://of6e0nb1h.bkt.clouddn.com/adaf2edda3cc7cd99b2962d73901213fb80e91b3.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="燕航的博客，感谢访问哈！" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="燕航的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -164,7 +164,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。</p>
+        <p> 接触ios开发已经有一段时间了，发现对签名和证书还是不太清楚，索性自己研究了一下，网上查阅了很多资料，自己又总结了一下，希望对大家有帮助。</p>
 <h2 id="什么是非对称密钥加密？"><a href="#什么是非对称密钥加密？" class="headerlink" title="什么是非对称密钥加密？"></a>什么是非对称密钥加密？</h2><p>  非对称加密就是指加密密钥和解密密钥是不同的，而且加密密钥和解密密钥是成对出现。非对称加密又叫公钥加密，也就是说成对的密钥，其中一个是对外公开的，所有人都可以获得，或者说可以把这个公钥给很多人，称为公钥，而与之相对应的称为私钥，只有这对密钥的生成者才能拥有。<br><a id="more"></a></p>
 <h4 id="非对称密钥的特性"><a href="#非对称密钥的特性" class="headerlink" title="非对称密钥的特性"></a>非对称密钥的特性</h4><pre><code>一个私钥对应一个公钥，公钥可以分发多人
 一个公钥加密后的密文可以通过私钥进行解密，一个私钥加密的密文可以通过公钥进行解密
@@ -335,7 +335,7 @@ InHouse。企业版发布，需$299才能拥有，还需邓氏编码
   			
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/xiangriikui/article/details/52207153">CSDN</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">大神唐巧</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
   	        
@@ -353,7 +353,7 @@ InHouse。企业版发布，需$299才能拥有，还需邓氏编码
     
     	<section class="tools-section tools-section-me">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">记录学习点滴&lt;br&gt;iOS码农一枚&lt;br&gt;喜欢专研&lt;br&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">iOS码农一枚&lt;br&gt;记录学习点滴&lt;br&gt;喜欢专研&lt;br&gt;</div>
   	  	
     	</section>
     
