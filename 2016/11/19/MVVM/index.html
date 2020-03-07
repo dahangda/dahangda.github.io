@@ -272,7 +272,7 @@ height:30vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.9k</span>Reading time: <span class="post-count reading-time">12 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.9k</span>阅读时长: <span class="post-count reading-time">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,8 +401,12 @@ height:30vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="为什么要用-MVVM-代替-MVC？"><a href="#为什么要用-MVVM-代替-MVC？" class="headerlink" title="为什么要用 MVVM 代替 MVC？"></a>为什么要用 MVVM 代替 MVC？</h2><p>Apple 倡导开发者们使用 MVC 模式开发 App 程序，但很多人都没有严格按照 MVC 的模式去开发，只是让程序的架构看上去像 MVC，而实际上是 MC 或 VC</p>
-<p>很多入门开发者都有一个通病，就是把所有的逻辑，界面生成都写进 ViewController 中，这样 ViewController 就变成了一个 Massive View Controller（重量级视图控制器）。重量级视图控制器会让整个 ViewController 变得非常复杂且不可维护，让维护者崩溃却无从下手，只能忍痛默默的重写整个逻辑。<br>但是，有一种解决方案，可以解决 Massive View Controller 的问题，那就是 MVVM。<br>这是传统 MVC 模式：<br><img src="https://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/259158-73951dca6dd10e38.png" alt="图片"></p>
+        <h2 id="为什么要用-MVVM-代替-MVC？"><a href="#为什么要用-MVVM-代替-MVC？" class="headerlink" title="为什么要用 MVVM 代替 MVC？"></a>为什么要用 MVVM 代替 MVC？</h2><ul>
+<li><p>Apple 倡导开发者们使用 MVC 模式开发 App 程序，但很多人都没有严格按照 MVC 的模式去开发，只是让程序的架构看上去像 MVC，而实际上是 MC 或 VC</p>
+</li>
+<li><p>很多入门开发者都有一个通病，就是把所有的逻辑，界面生成都写进 ViewController 中，这样 ViewController 就变成了一个 Massive View Controller（重量级视图控制器）。重量级视图控制器会让整个 ViewController 变得非常复杂且不可维护，让维护者崩溃却无从下手，只能忍痛默默的重写整个逻辑。<br>但是，有一种解决方案，可以解决 Massive View Controller 的问题，那就是 MVVM。<br>这是传统 MVC 模式：<br><img src="https://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/259158-73951dca6dd10e38.png" alt="图片"></p>
+</li>
+</ul>
 <p>这是 MVVM 模式<br><img src="https://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/259158-9b8c5b88df49ff3d.png" alt="图片"><br>很多时候新手们会把数据转换逻辑，网络请求逻辑等都放到 ViewController 中，这样会不可避免的让 ViewController 变得臃肿，这是造成重量级视图控制器的重要原因<br>除了上面提到的一个原因外，由于 AFNetworking 是 iOS 开发网络访问框架的事实标准，而 AFNetworking 使用的是 block 来实现网络回调，block 会让 block 里面引用的变量的引用数+1，在某种网速非常缓慢的极端情况下，当用户打开 ViewController 的时候，网络请求已经发出，也就是说在 block 中的变量引用已经+1，如果此时用户退出这个 ViewController，当这个 block 发生回调时，此时持有 block 里面变量的 ViewController 已经被回收，而 block 里面的变量由于 block 的原因没有被及时回收，这样会造成 crash 的。这是在使用 block 进行回调时很容易被忽略的情况。<br>对于业务而言，将所有业务不加区分都放进 ViewController 中，这显然是一种懒惰的表现。一个 ViewController 中包含大量业务的细节，将使这个 ViewController 在业务协调和调用中迷失，将让这个业务变得非常混乱，让业务逻辑变得无法维护。由于重量级 ViewController 的复杂性，其代码将难以复用。</p>
 <p>以上原因是传统 MVC 难以解决的，为解决这些问题，要采用 MVVM 的开发模式。</p>
 <p>MVVM 不是什么新鲜事，简单说就是将部分逻辑从 ViewController 中拆分出来，并整合起来在 ViewController 和 Model 中间加多一个 ViewModel，ViewModel 不直接引用 View，ViewController 也不引用 Model 中的方法，所有网络回调数据处理等逻辑都放到 ViewModel 中，ViewController 通过 ViewModel 来请求数据和更新数据。</p>
@@ -453,10 +457,10 @@ height:30vh;
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>Author：<a href="http://yoursite.com">燕 航</a>
+            <p>原文作者：<a href="http://yoursite.com">燕 航</a>
             <p>原文链接：<a href="http://yoursite.com/2016/11/19/MVVM/">http://yoursite.com/2016/11/19/MVVM/</a>
             <p>发表日期：<a href="http://yoursite.com/2016/11/19/MVVM/">November 19th 2016, 7:38:31 pm</a>
-            <p>更新日期：<a href="http://yoursite.com/2016/11/19/MVVM/">March 7th 2020, 10:22:45 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2016/11/19/MVVM/">March 7th 2020, 3:08:44 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
