@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >燕航的博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name"></a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>燕航的博客</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:30vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            [Untitled Post]
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">242</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/03/12</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,40 +393,75 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/04/12/SDWebImageDefine/" >
-            
-                <span>SDWebImageDefine源码学习</span>
-        </a>
-        <div class="abstract-content">
-            block 声明1typedef void(^SDWebImageNoParamsBlock)(void);
-枚举字符串1234typedef NSString * SDWebImageCont...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SDWebImage">SDWebImage</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>一个异步下载图片并且支持缓存的 UIImageView 分类</li>
+<li>sdwebimage 使用分类协议扩展通知实现了图片下载（异步），缓存（自动），解码（ WebP 格式）</li>
+</ul>
+<h4 id="code-文件结构"><a href="#code-文件结构" class="headerlink" title="code 文件结构"></a>code 文件结构</h4><p><img src="https://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/WechatIMG40.png" alt="图片"></p>
+<ul>
+<li>manager（管理下载和缓存，供给上层 webCache Categories 使用）</li>
+<li>downloader（下载模块）</li>
+<li>cache（缓存模块包括 SDImageCache 与 SDDiskCache）</li>
+<li>Decoder（解码模块）</li>
+<li>utils（错误，平台，下载指示器，声明，宏定义，通用协议，）</li>
+<li>categories（数据分类如 NSdata 工具分类）</li>
+<li>webCache Categories（UIkit 相关的分类）</li>
+</ul>
+<h4 id="模块之-webCache-Categories"><a href="#模块之-webCache-Categories" class="headerlink" title="模块之 webCache Categories"></a>模块之 webCache Categories</h4><ul>
+<li>UIkit 中的 uiview 作为 UIImageView 和 UIBtton 父类为其他子类提供便利方法来实现共用。uiview 的便利方法使用分类实现。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//所有 View Category 的 setImageUrl；</span></div><div class="line">- (<span class="keyword">void</span>)sd_internalSetImageWithURL:(<span class="keyword">nullable</span> <span class="built_in">NSURL</span> *)url</div><div class="line">                  placeholderImage:(<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)placeholder</div><div class="line">                           options:(SDWebImageOptions)options</div><div class="line">                           context:(<span class="keyword">nullable</span> SDWebImageContext *)context</div><div class="line">                     setImageBlock:(<span class="keyword">nullable</span> SDSetImageBlock)setImageBlock</div><div class="line">                          progress:(<span class="keyword">nullable</span> SDImageLoaderProgressBlock)progressBlock</div><div class="line">                         completed:(<span class="keyword">nullable</span> SDInternalCompletionBlock)completedBlock;</div></pre></td></tr></table></figure>
+<h4 id="主要模块"><a href="#主要模块" class="headerlink" title="主要模块"></a>主要模块</h4><ul>
+<li>SDWebImageCompat 做机型适配的。</li>
+<li>SDWebImageDownloader 异步下载器专用和优化图像加载。</li>
+<li>SDWebImagePrefetcher 图片的预加载。</li>
+</ul>
+<h4 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h4>
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dahangda.github.io">燕 航</a>
+            <p>原文链接：<a href="https://dahangda.github.io/2020/03/12/sdwebimage架构剖析/">https://dahangda.github.io/2020/03/12/sdwebimage架构剖析/</a>
+            <p>发表日期：<a href="https://dahangda.github.io/2020/03/12/sdwebimage架构剖析/">March 12th 2020, 10:36:23 pm</a>
+            <p>更新日期：<a href="https://dahangda.github.io/2020/03/12/sdwebimage架构剖析/">March 12th 2020, 10:36:25 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/01/19/SDWebImageIndicator/" title= "SDWebImageIndicator源码学习">
+                    <div class="prevTitle">SDWebImageIndicator源码学习</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -413,6 +503,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:30vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#code-文件结构"><span class="toc-number">2.</span> <span class="toc-text">code 文件结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块之-webCache-Categories"><span class="toc-number">3.</span> <span class="toc-text">模块之 webCache Categories</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主要模块"><span class="toc-number">4.</span> <span class="toc-text">主要模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#待续"><span class="toc-number">5.</span> <span class="toc-text">待续</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -693,6 +801,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
