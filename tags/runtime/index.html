@@ -17,12 +17,12 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
     
-    <meta name="keywords" content="runtime,kvo,hexo,ios学习,hexo-blog">
+    <meta name="keywords" content="hexo,ios学习,hexo-blog">
     
     <meta name="description" content="擅长各项前端技能，深入研究移动端开发与前端性能，非专业视觉设计师。此为博客一枚。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>kvo的理解 · 燕航的博客</title>
+    <title>燕航的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >燕航的博客</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">kvo的理解</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>燕航的博客</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:30vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            kvo的理解
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "kvo">kvo</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">496</span>Reading time: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2017/03/19</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,80 +338,39 @@ height:30vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h5 id="我是前言"><a href="#我是前言" class="headerlink" title="我是前言"></a>我是前言</h5><ul>
-<li>kvo 全称是 key value observe。由 NSKeyValueObserving 协议提供支持，NSObject 类继承了该协议，所以 NSObject 的子类都可使用该方法。</li>
-</ul>
-<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><ul>
-<li>注册一个监听（指定观察者，以及要观察的属性）</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">options: 有4个值，分别是：</div><div class="line">NSKeyValueObservingOptionOld 把更改之前的值提供给处理方法</div><div class="line">NSKeyValueObservingOptionNew 把更改之后的值提供给处理方法</div><div class="line">NSKeyValueObservingOptionInitial 把初始化的值提供给处理方法，一旦注册，立马就会调用一次。通常它会带有新值，而不会带有旧值。</div><div class="line">NSKeyValueObservingOptionPrior 分2次调用。在值改变之前和值改变之后。</div><div class="line"> */</div><div class="line"><span class="comment">//注册一个监听器用于监听指定的key路径</span></div><div class="line">[<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<ul>
-<li>实现一个协议方法（响应）</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当key路径对应的属性值发生改变时，监听器就会回调自身的监听方法，如下</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath</div><div class="line">                      ofObject:(<span class="keyword">id</span>)object</div><div class="line">                        change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change</div><div class="line">                       context:(<span class="keyword">void</span> *)contex</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="kvo-使用场景"><a href="#kvo-使用场景" class="headerlink" title="kvo 使用场景"></a>kvo 使用场景</h5><ul>
-<li>数据保存实时性（例如 user）</li>
-<li>对象属性触发某个操作（滑动）</li>
-</ul>
-<h4 id="KVO-的实现原理简要说明"><a href="#KVO-的实现原理简要说明" class="headerlink" title="KVO 的实现原理简要说明"></a>KVO 的实现原理简要说明</h4><ul>
-<li>如果原类为 Person，那么生成的派生类名为 NSKVONotifying_Person 每个类对象中都有一个 isa 指针指向当前类，当一个类对象的第一次被观察，那么 系统会偷偷将 isa 指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的 setter 方法。</li>
-<li>键值观察通知依赖于 NSObject 的两个方法 willChangeValueForKey:didChangevlueForKey:;在一个被观察属性发生改变之前， willChangeValueForKey: 一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey: 会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。<blockquote>
-<p>补充:KVO 的这套实现机制中苹果还偷偷重写了 class 方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类。</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://juejin.im/post/5a31439af265da431e16c3fc#heading-8" target="_blank" rel="external">掘金</a></p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>Author：<a href="https://dahangda.github.io">燕 航</a>
-            <p>原文链接：<a href="https://dahangda.github.io/2017/03/19/kvo的理解/">https://dahangda.github.io/2017/03/19/kvo的理解/</a>
-            <p>发表日期：<a href="https://dahangda.github.io/2017/03/19/kvo的理解/">March 19th 2017, 7:28:30 pm</a>
-            <p>更新日期：<a href="https://dahangda.github.io/2017/03/19/kvo的理解/">March 9th 2020, 9:41:59 pm</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/03/19/iOS  runtime理解/" >
+            
+                <span>iOS  runtime理解</span>
+        </a>
+        <div class="abstract-content">
+            前言runtime 是一个运行时系统，使 c 具有了面向对象的功能。OC 代码被编译器转化为 C 语言，然后再通过运行时执行，最终实现了动态调用。这其中的 OC 类、对象和方法等都对应了 C 中...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "runtime">runtime</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2017/04/12/SDWebImageDefine/" title= "SDWebImageDefine源码学习">
-                    <div class="nextTitle">SDWebImageDefine源码学习</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2017/01/19/https的作用和http的区别/" title= "https的作用和http的区别">
-                    <div class="prevTitle">https的作用和http的区别</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- gitalk评论 -->
-
-    <!-- utteranc评论 -->
-
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -514,24 +412,6 @@ height:30vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:30vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#我是前言"><span class="toc-number">1.</span> <span class="toc-text">我是前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#kvo-使用场景"><span class="toc-number">3.</span> <span class="toc-text">kvo 使用场景</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KVO-的实现原理简要说明"><span class="toc-number"></span> <span class="toc-text">KVO 的实现原理简要说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number"></span> <span class="toc-text">参考</span></a>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -831,8 +711,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
