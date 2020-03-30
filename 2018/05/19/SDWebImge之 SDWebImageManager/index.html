@@ -274,7 +274,7 @@ height:30vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.1k</span>Reading time: <span class="post-count reading-time">10 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -407,7 +407,7 @@ height:30vh;
 <blockquote>
 <p>属性功能有 imageCache（查找工具），imageLoader（下载工具），runningOperations（用以放 DWebImageCombinedOperation）。<code>failedURLsLock</code>，<code>runningOperationsLock</code>是<code>dispatch_semaphore_t</code>锁。信号量为 1，即只能用一个线程访问如果多个线程访问就会阻塞问题。保证写入数据时候只能一个线程操作。</p>
 </blockquote>
-<p>SDWebImageManager 中 方法逻辑<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/SDWebImageManagerClassDiagram.png" alt=""></p>
+<p>SDWebImageManager 中 方法逻辑<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/HhUcfz.png" alt="HhUcfz"></p>
 <h4 id="SDWebImageCombinedOperation"><a href="#SDWebImageCombinedOperation" class="headerlink" title="SDWebImageCombinedOperation"></a>SDWebImageCombinedOperation</h4><ul>
 <li><code>SDWebImageCombinedOperation</code>，这个联合操作具有下载，缓存两个功能。以属性的形式依附在<code>SDWebImageCombinedOperation</code>中。每一图片都有经历下载和缓存两个步骤所以 用一个联合操作定义这两个步骤。为了说明联合操作有取消的功能，必须实现 <code>cancnel</code>方法。</li>
 <li><code>SDWebImageCombinedOperation</code>会与 key 进行关联，<code>UIView+WebCache.m</code>可以看出来相应的关联。</li>
@@ -459,10 +459,10 @@ height:30vh;
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>Author：<a href="https://dahangda.github.io">燕 航</a>
+            <p>原文作者：<a href="https://dahangda.github.io">燕 航</a>
             <p>原文链接：<a href="https://dahangda.github.io/2018/05/19/SDWebImge之 SDWebImageManager/">https://dahangda.github.io/2018/05/19/SDWebImge之 SDWebImageManager/</a>
             <p>发表日期：<a href="https://dahangda.github.io/2018/05/19/SDWebImge之 SDWebImageManager/">May 19th 2018, 9:00:34 pm</a>
-            <p>更新日期：<a href="https://dahangda.github.io/2018/05/19/SDWebImge之 SDWebImageManager/">March 30th 2020, 7:17:40 pm</a>
+            <p>更新日期：<a href="https://dahangda.github.io/2018/05/19/SDWebImge之 SDWebImageManager/">March 30th 2020, 11:26:16 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
