@@ -17,12 +17,12 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
     
-    <meta name="keywords" content="hexo,ios学习,hexo-blog">
+    <meta name="keywords" content="swiftUI,hexo,ios学习,hexo-blog">
     
     <meta name="description" content="擅长各项前端技能，深入研究移动端开发与前端性能，非专业视觉设计师。此为博客一枚。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>燕航的博客</title>
+    <title>swiftUI初步探索 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >燕航的博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">swiftUI初步探索</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>燕航的博客</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:30vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            swiftUI初步探索
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "swiftUI">swiftUI</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">506</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/12/03</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,39 +399,110 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/04/12/SDWebImageDefine/" >
-            
-                <span>SDWebImageDefine</span>
-        </a>
-        <div class="abstract-content">
-            block 声明1typedef void(^SDWebImageNoParamsBlock)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SDWebImage">SDWebImage</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>[toc]</p>
+<h4 id="swiftUI-问世由来"><a href="#swiftUI-问世由来" class="headerlink" title="swiftUI 问世由来"></a>swiftUI 问世由来</h4><ul>
+<li>解决 UIkit 在 MVC 模式下，控件状态的问题<blockquote>
+<p>协调 model，view 以及用户交互，，需要结合 view 中的方法，控制器的生命周期，以及 runloop。</p>
+</blockquote>
+</li>
+<li>随着编程思想以及技术的进步，声明式的开发被广泛运用，例如 flutter，reactNative 。swiftUI 与他们高度一致。</li>
+</ul>
+<h4 id="声明式的-swiftUI"><a href="#声明式的-swiftUI" class="headerlink" title="声明式的 swiftUI"></a>声明式的 swiftUI</h4><ul>
+<li>标签式的控件</li>
+</ul>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/gJyLf6.jpg" alt="gJyLf6"></p>
+<ul>
+<li>状态绑定根据不同状态进行显示</li>
+</ul>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/Kua6b8.jpg" alt="Kua6b8"></p>
+<ul>
+<li>差分式的渲染方式<blockquote>
+<p>只渲染不一样的地方，并不会渲染整个页面，节省性能。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="swiftUI-结构解析"><a href="#swiftUI-结构解析" class="headerlink" title="swiftUI 结构解析"></a>swiftUI 结构解析</h4><ul>
+<li>首先看下面的 code</li>
+</ul>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/nLOvKQ.jpg" alt="nLOvKQ"></p>
+<blockquote>
+<p>一句话：准守 view 协议，声明 body 属性，body 的类型采用的是约束类型（<code>some view</code>）</p>
+</blockquote>
+<h4 id="Preview-特性"><a href="#Preview-特性" class="headerlink" title="Preview 特性"></a>Preview 特性</h4><ul>
+<li>类似 flutter 与 reactNative 的 hotload。搭载系统的 swiftUI.framwork. 比 IBDesignable 性能要强。</li>
+<li>将对代码进行静态分析 (得益于 SwiftSyntax 框架)，找到所有遵守 PreviewProvider 协议的类型进行预览渲染。另外，你可以为这些预览提供合适的数据，这甚至可以让整个界面开发流程不需要实际运行 app 就能进行。</li>
+</ul>
+<h4 id="view-属性链式使用"><a href="#view-属性链式使用" class="headerlink" title="view 属性链式使用"></a>view 属性链式使用</h4><p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/ONm05a.jpg" alt="ONm05a"></p>
+<h4 id="ViewBuilder"><a href="#ViewBuilder" class="headerlink" title="ViewBuilder"></a>ViewBuilder</h4><p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/sksMrC.jpg" alt="sksMrC"></p>
+<ul>
+<li>初始化方法</li>
+</ul>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/LKBBDq.jpg" alt="LKBBDq"></p>
+<ul>
+<li>不能接受命令式的代码<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/xe0CXR.jpg" alt="xe0CXR"></li>
+</ul>
+<h4 id="State-和-Binding"><a href="#State-和-Binding" class="headerlink" title="@State 和 Binding"></a>@State 和 Binding</h4><p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/EnlpGu.jpg" alt="EnlpGu"></p>
+<ul>
+<li>@State 它修饰的 struct 可以变成一个新的修饰符并作用在其他代码上，来改变这些代码默认的行为。</li>
+</ul>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/q1LHkE.jpg" alt="q1LHkE"></p>
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><blockquote>
+<p>1.直接在 View 上使用 .animation modifier 2.使用 withAnimation { } 来控制某个 State，进而触发动画。</p>
+</blockquote>
+<h5 id="以-modifier-形式实现，与-modifier-顺序有关。"><a href="#以-modifier-形式实现，与-modifier-顺序有关。" class="headerlink" title="以 modifier 形式实现，与 modifier 顺序有关。"></a>以 modifier 形式实现，与 modifier 顺序有关。</h5><p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/VpOs5S.jpg" alt="VpOs5S"></p>
+<h5 id="withAnimation"><a href="#withAnimation" class="headerlink" title="withAnimation"></a>withAnimation</h5><blockquote>
+<p>withAnimation { } 是一个顶层函数，在闭包内部，我们一般会触发某个 State 的变化，并让 View.body 进行重新计算：</p>
+</blockquote>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/F4jsrC.jpg" alt="F4jsrC"></p>
+<h4 id="关于-View-的生命周期"><a href="#关于-View-的生命周期" class="headerlink" title="关于 View 的生命周期"></a>关于 View 的生命周期</h4><blockquote>
+<p>虽然有生命周期函数，并且这些函数也是在 modifier 的方式使用，但是更通用的事件响应 hook 是 .onReceive(_:perform:)。它定义了一个可以响应目标 Publisher 的任意的 View，一旦订阅的 Publisher 发出新的事件时，onReceive 就将被调用。</p>
+</blockquote>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dahangda.github.io">燕 航</a>
+            <p>原文链接：<a href="https://dahangda.github.io/2019/12/03/swiftUI初步探索/">https://dahangda.github.io/2019/12/03/swiftUI初步探索/</a>
+            <p>发表日期：<a href="https://dahangda.github.io/2019/12/03/swiftUI初步探索/">December 3rd 2019, 8:36:24 pm</a>
+            <p>更新日期：<a href="https://dahangda.github.io/2019/12/03/swiftUI初步探索/">April 1st 2020, 10:51:26 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/05/19/SDWebImge之 SDWebImageManager/" title= "SDWebImageManager">
+                    <div class="prevTitle">SDWebImageManager</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -412,6 +544,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:30vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#swiftUI-问世由来"><span class="toc-number">1.</span> <span class="toc-text">swiftUI 问世由来</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#声明式的-swiftUI"><span class="toc-number">2.</span> <span class="toc-text">声明式的 swiftUI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#swiftUI-结构解析"><span class="toc-number">3.</span> <span class="toc-text">swiftUI 结构解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Preview-特性"><span class="toc-number">4.</span> <span class="toc-text">Preview 特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#view-属性链式使用"><span class="toc-number">5.</span> <span class="toc-text">view 属性链式使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ViewBuilder"><span class="toc-number">6.</span> <span class="toc-text">ViewBuilder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#State-和-Binding"><span class="toc-number">7.</span> <span class="toc-text">@State 和 Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动画"><span class="toc-number">8.</span> <span class="toc-text">动画</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#以-modifier-形式实现，与-modifier-顺序有关。"><span class="toc-number">8.1.</span> <span class="toc-text">以 modifier 形式实现，与 modifier 顺序有关。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#withAnimation"><span class="toc-number">8.2.</span> <span class="toc-text">withAnimation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于-View-的生命周期"><span class="toc-number">9.</span> <span class="toc-text">关于 View 的生命周期</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -730,6 +880,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
