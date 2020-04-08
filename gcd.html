@@ -17,12 +17,12 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
     
-    <meta name="keywords" content="hexo,ios学习,燕航的博客,hexo-blog">
+    <meta name="keywords" content="多线程,信号量，gcd,hexo,ios学习,燕航的博客,hexo-blog">
     
     <meta name="description" content="擅长各项前端技能，深入研究移动端开发与前端性能，非专业视觉设计师。此为博客一枚。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>燕航的博客</title>
+    <title>gcd 理解 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >燕航的博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">gcd 理解</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>燕航的博客</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:30vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            gcd 理解
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "gcd">gcd</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/07/19</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,39 +399,102 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/SDWebImageDefine.html" >
-            
-                <span>SDWebImageDefine</span>
-        </a>
-        <div class="abstract-content">
-            block 声明1typedef void(^SDWebImageNoParamsBlock)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SDWebImage">SDWebImage</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>iOS 任务分发，线程管理的一种方式。GCD 更加趋近于底层性能较高。</p>
+<ul>
+<li>其中任务管理使用队列，包括串行队列，并行队列。系统提供了全局队列（并行队列<code>dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</code> ）和主队列（串行队列<code>dispatch_get_main_queue()</code>）。</li>
+<li>队列的不同指的是任务的分发不同，并行队列 一次下发多个任务，串行队列是一次下发一个任务。</li>
+<li>同步与异步是指任务执行是否需要等待其他任务执行完返回数据。同步是需要等待的，异步是不需要等待的。<blockquote>
+<p><strong>同步与异步 在执行的时候都是立马去执行，异步同步是一个开线程的能力而已 ，队列没有开线程的能力</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="同步执行串行队列"><a href="#同步执行串行队列" class="headerlink" title="同步执行串行队列"></a>同步执行串行队列</h5><p>不开线程，等 blcok 任务执行完。会有阻塞当前线程的发生。（不开线程）<br>创建执行<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/AXu1j2.jpg" alt="AXu1j2"><br>注意：串行队列异步执行有开线程的能力</p>
+<h5 id="异步执行并行队列"><a href="#异步执行并行队列" class="headerlink" title="异步执行并行队列"></a>异步执行并行队列</h5><p>开线程不等待当前任务执行完返回数据，就可以执行接下来的任务。接下来的任务在在另外的线程执行。（开线程）<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/je6SrH.jpg" alt="je6SrH"><br>注意： 并行队列同步不开线程</p>
+<h5 id="队列组与队列完成通知"><a href="#队列组与队列完成通知" class="headerlink" title="队列组与队列完成通知"></a>队列组与队列完成通知</h5><p>可解决多个如 ABC 任务（不分先后）执行后执行 D 任务。注意 ABC 开始执行是同步任务，在 D 之前这个用队列组没有问题，如果 ABC 是异步的话使用就会出现问题。</p>
+<blockquote>
+<p>任务中还嵌套了异步任务，线程组不会管这个嵌套异步任务是否执行完成，调用了这个任务就 OK 了，因为是异步的我就不会等你执行完成就继续下一步了，一旦线程组第一层的任务都执行完成了就会调用通知。如果将异步换成同步的，就比需要等待嵌套任务执行完成才回去通知。</p>
+</blockquote>
+<p>ABC 同步任务 d 在 abc 执行后执行<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/zw3Ko7.jpg" alt="zw3Ko7"><br>如果是异步分发同步任务 ABC（等同步执行完）执行 D，可以使用 GCD group 与 group<em>notify。或者 NSBlockOperation 依赖解决。以及栅栏函数 dispatch_barrier</em>(a)sync。<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/isuPHV.jpg" alt="isuPHV"><br>dispatch<em>barrier_async<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/OzlGbN.jpg" alt="OzlGbN"><br>dispatch_barrier</em>(a)sync 其中需要在新并行队列执行，异步栅栏函数或者同步栅栏函数就定了在执行栅栏函数内 block 是否要等待结果。<a href="https://www.jianshu.com/p/e4d5b26b6a36" target="_blank" rel="external">参考</a></p>
+<blockquote>
+<p>在同步栅栏时栅栏函数在主线程中执行,而异步栅栏中开辟了子线程栅栏函数在子线程中执行</p>
+</blockquote>
+<p>例如图片下载 1，2，3，4 四个图片下载完在显示。上面使用都会无效。就要使用下面的结合信号量完成。</p>
+<h4 id="dispatch-semaphore"><a href="#dispatch-semaphore" class="headerlink" title="dispatch_semaphore"></a>dispatch_semaphore</h4><p>信号常用的就是三个函数</p>
+<p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/OwRtIU.jpg" alt="OwRtIU"><br>ABC 三个任务改成异步任务(如 AFN 网络请求)、全部回调成功后进行数据整合。<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/bhFhhv.jpg" alt="bhFhhv"><br>使用 dispatch_semaphore_wait 将 blcok 的异步变为同步，只有 dispatch_semaphore_wait 执行完，才能算 group 的任务执行完。同时信号量也可以实现锁的功能，这个可在 SDWebImageManager 中看到。</p>
+<h4 id="dispatch-group-enter-和-dispatch-group-leave"><a href="#dispatch-group-enter-和-dispatch-group-leave" class="headerlink" title="dispatch_group_enter 和 dispatch_group_leave"></a>dispatch_group_enter 和 dispatch_group_leave</h4><p><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/FIY3cU.jpg" alt="FIY3cU"><br>利用了 dispatch_group_enter 与 dispatch_group_leave 成对出现来完成同步功能，然后发 group 通知。</p>
+<h6 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h6><ul>
+<li>异步并发执行同步任务后整合，使用 dispatch_group,dispatch_barrier 和 NSOperation 的依赖</li>
+<li>异步并发执行异步任务后整合，可以用 dispatch_group+semaphore 初始化信号为 0，执行完一个异步通过 singnal 释放一个 wait 任务。</li>
+<li>例子如：多个任务网络请求，NSOperation 我感觉无法实现多网络任务执行完之后再最终统一执行某一个人任务。这个时候只有用 dispatch_group + semaphore 来实现。<br>或者用 disaptch_group_enter 和 dispatch_group_leave</li>
+</ul>
+<h5 id="执行顺序（dispatch）"><a href="#执行顺序（dispatch）" class="headerlink" title="执行顺序（dispatch）"></a>执行顺序（dispatch）</h5><p>使用同步函数（必须等到 block 执行完）与异步函数（不必等 block 执行完），来决定任务的执行顺序。dispatch_after 是任务追加函数，dispatch_group_wait 超时判断函数。</p>
+<ul>
+<li>同步用于阻塞当前线程。</li>
+</ul>
+<h5 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h5><ul>
+<li>防止在串行队列中使用同步操作，会造成死锁。<blockquote>
+<p>同步操作执行完才会返回。容易出现相互等待的情况。<br>例如：主线程执行同步操作会出现死锁。</p>
+</blockquote>
+</li>
+</ul>
+<p>死锁例子<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/8zU9w9.jpg" alt="8zU9w9"></p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>代码执行时，资源的合理利用。任务分发机制（队列），任务的执行机制（异步函数同步函数）。</li>
+<li>并发编程中，一般会面对这样的三个问题：竞态条件、优先倒置、死锁问题。</li>
+</ul>
+<h5 id="使用-tip"><a href="#使用-tip" class="headerlink" title="使用 tip"></a>使用 tip</h5><p>gcd 队列，异步同步，信号量，锁，栅栏函数，一次性代码，延迟执行，定时器。</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://blog.csdn.net/Deft_MKJing/article/details/51518556" target="_blank" rel="external">https://blog.csdn.net/Deft_MKJing/article/details/51518556</a><br><a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="external">https://www.jianshu.com/p/51fd1362249e</a></p>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://dahangda.github.io">燕 航</a>
+            <p>原文链接：<a href="https://dahangda.github.io/gcd.html">https://dahangda.github.io/gcd.html</a>
+            <p>发表日期：<a href="https://dahangda.github.io/gcd.html">July 19th 2018, 11:28:30 pm</a>
+            <p>更新日期：<a href="https://dahangda.github.io/gcd.html">April 8th 2020, 10:58:46 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/block 中 strongself.html" title= "block strongSelf">
+                    <div class="nextTitle">block strongSelf</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/SDWebImge之 SDWebImageManager.html" title= "SDWebImageManager">
+                    <div class="prevTitle">SDWebImageManager</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -412,6 +536,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:30vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#同步执行串行队列"><span class="toc-number">1.1.</span> <span class="toc-text">同步执行串行队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#异步执行并行队列"><span class="toc-number">1.2.</span> <span class="toc-text">异步执行并行队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#队列组与队列完成通知"><span class="toc-number">1.3.</span> <span class="toc-text">队列组与队列完成通知</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dispatch-semaphore"><span class="toc-number">2.</span> <span class="toc-text">dispatch_semaphore</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dispatch-group-enter-和-dispatch-group-leave"><span class="toc-number">3.</span> <span class="toc-text">dispatch_group_enter 和 dispatch_group_leave</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#小结"><span class="toc-number">3.0.1.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#执行顺序（dispatch）"><span class="toc-number">3.1.</span> <span class="toc-text">执行顺序（dispatch）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注意点"><span class="toc-number">3.2.</span> <span class="toc-text">注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#总结"><span class="toc-number">3.3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用-tip"><span class="toc-number">3.4.</span> <span class="toc-text">使用 tip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#参考"><span class="toc-number">3.5.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -770,6 +912,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dahangda.github.io/gcd.html</loc>
+    
+    <lastmod>2020-04-08T14:58:46.328Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dahangda.github.io/about/index.html</loc>
     
     <lastmod>2020-04-06T14:35:57.324Z</lastmod>
@@ -9,91 +16,84 @@
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2018/07/19/gcd/</loc>
-    
-    <lastmod>2020-04-06T14:01:58.510Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dahangda.github.io/2018/08/19/block%20%E4%B8%AD%20strongself/</loc>
+    <loc>https://dahangda.github.io/block%20%E4%B8%AD%20strongself.html</loc>
     
     <lastmod>2020-04-02T10:31:47.015Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2019/12/03/swiftUI%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A2/</loc>
+    <loc>https://dahangda.github.io/swiftUI%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A2.html</loc>
     
     <lastmod>2020-04-01T05:34:37.996Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2018/05/19/SDWebImge%E4%B9%8B%20SDWebImageManager/</loc>
+    <loc>https://dahangda.github.io/SDWebImge%E4%B9%8B%20SDWebImageManager.html</loc>
     
     <lastmod>2020-03-30T15:26:16.472Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2017/04/12/SDWebImageDefine/</loc>
+    <loc>https://dahangda.github.io/SDWebImageDefine.html</loc>
     
     <lastmod>2020-03-26T14:54:48.212Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2017/03/19/kvo%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    <loc>https://dahangda.github.io/kvo%E7%9A%84%E7%90%86%E8%A7%A3.html</loc>
     
     <lastmod>2020-03-26T14:54:15.325Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2018/03/19/iOS%20%20runtime%E7%90%86%E8%A7%A3/</loc>
+    <loc>https://dahangda.github.io/iOS%20%20runtime%E7%90%86%E8%A7%A3.html</loc>
     
     <lastmod>2020-03-26T14:53:31.811Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2017/08/12/sdwebimage%E6%9E%B6%E6%9E%84%E5%89%96%E6%9E%90/</loc>
+    <loc>https://dahangda.github.io/sdwebimage%E6%9E%B6%E6%9E%84%E5%89%96%E6%9E%90.html</loc>
     
     <lastmod>2020-03-26T14:52:49.615Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2018/01/19/SDWebImageIndicator/</loc>
+    <loc>https://dahangda.github.io/SDWebImageIndicator.html</loc>
     
     <lastmod>2020-03-11T13:44:28.507Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2017/01/19/https%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8Chttp%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    <loc>https://dahangda.github.io/https%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8Chttp%E7%9A%84%E5%8C%BA%E5%88%AB.html</loc>
     
     <lastmod>2020-03-09T13:42:06.449Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2016/11/19/MVVM/</loc>
+    <loc>https://dahangda.github.io/MVVM.html</loc>
     
     <lastmod>2020-03-08T14:37:09.339Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2016/10/19/ios%E8%AF%81%E4%B9%A6%E4%B8%8E%E7%AD%BE%E5%90%8D%E6%9C%BA%E5%88%B6/</loc>
+    <loc>https://dahangda.github.io/ios%E8%AF%81%E4%B9%A6%E4%B8%8E%E7%AD%BE%E5%90%8D%E6%9C%BA%E5%88%B6.html</loc>
     
     <lastmod>2020-03-08T14:30:15.250Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dahangda.github.io/2016/09/17/UIkit%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/</loc>
+    <loc>https://dahangda.github.io/UIkit%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B.html</loc>
     
     <lastmod>2020-03-07T15:53:30.527Z</lastmod>
     

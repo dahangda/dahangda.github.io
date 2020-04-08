@@ -17,12 +17,12 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
     
-    <meta name="keywords" content="hexo,ios学习,燕航的博客,hexo-blog">
+    <meta name="keywords" content="循环引用,weakSelf，strongSelf,hexo,ios学习,燕航的博客,hexo-blog">
     
     <meta name="description" content="擅长各项前端技能，深入研究移动端开发与前端性能，非专业视觉设计师。此为博客一枚。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>燕航的博客</title>
+    <title>block strongSelf · 燕航的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >燕航的博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">block strongSelf</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>燕航的博客</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:30vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            block strongSelf
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "block">block</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">345</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/08/19</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,39 +399,70 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/SDWebImageDefine.html" >
-            
-                <span>SDWebImageDefine</span>
-        </a>
-        <div class="abstract-content">
-            block 声明1typedef void(^SDWebImageNoParamsBlock)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "SDWebImage">SDWebImage</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先 block 使用 weakself 来打破循环引用。新建的 weakself 指针 指向 self。 同时用 weak 来修饰 weakself。</p>
+<ul>
+<li>实现代码<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/QGTg43.jpg" alt="QGTg43"><br>其中 typeof(self)返回的是这个 self 对象的类型。<br>这个时候可以在 block 里面 weakself。</li>
+</ul>
+<h3 id="strongself"><a href="#strongself" class="headerlink" title="strongself"></a>strongself</h3><p>strongself 是强引用指针，也就是引用加一。参与 self 的内存管理，保证了 block 中 self 一直存在， self 使用必须等到 block 运行完，这个强引用消失，self 才可以释放。如果用 weakself 在 block 里面执行一些 code，self 本身的内存管理 在外界决定的，self 计数可能为 0.导致 block 中有些 code 不执行。</p>
+<blockquote>
+<p>故为了保证 self 在 block 执行过程里一直存在，对他强引用 strongSelf。</p>
+</blockquote>
+<p>实现代码<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/rVgQXA.jpg" alt="rVgQXA"></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>block 里是不参与 self 内存管理，self 释放可能已经但是 blcok 没有释放。依然执行中。<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/9nQ2Jw.jpg" alt="9nQ2Jw"></p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>宏定义<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/3sZtaJ.jpg" alt="3sZtaJ"><br>rac 也有相关的宏定义，加入释放池，以及支持多个参数。<a href="https://halfrost.com/ios_block_retain_circle/" target="_blank" rel="external">ele 参考</a></p>
+<p>使用<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/Dl0rYV.jpg" alt="Dl0rYV"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>外部新建 weaself 指针，内部新建 strongself 指针 记解决了循环引用的问题有解决了 self 被提前换释放的问题。<br>关于 Masonry ，它内部根本没有捕获变量 self，进入 block 的是 testButton，所以执行完毕后，block 会被销毁，没有形成环。所以，没有引起循环依赖。</p>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://dahangda.github.io">燕 航</a>
+            <p>原文链接：<a href="https://dahangda.github.io/block 中 strongself.html">https://dahangda.github.io/block 中 strongself.html</a>
+            <p>发表日期：<a href="https://dahangda.github.io/block 中 strongself.html">August 19th 2018, 9:28:30 pm</a>
+            <p>更新日期：<a href="https://dahangda.github.io/block 中 strongself.html">April 2nd 2020, 6:31:47 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/swiftUI初步探索.html" title= "swiftUI初步探索">
+                    <div class="nextTitle">swiftUI初步探索</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/gcd.html" title= "gcd 理解">
+                    <div class="prevTitle">gcd 理解</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -412,6 +504,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:30vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strongself"><span class="toc-number">2.</span> <span class="toc-text">strongself</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">3.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用方法"><span class="toc-number">4.</span> <span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -770,6 +880,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
