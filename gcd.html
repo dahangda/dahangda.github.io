@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>gcd 理解 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -416,7 +416,7 @@ height:30vh;
 <blockquote>
 <p>任务中还嵌套了异步任务，线程组不会管这个嵌套异步任务是否执行完成，调用了这个任务就 OK 了，因为是异步的我就不会等你执行完成就继续下一步了，一旦线程组第一层的任务都执行完成了就会调用通知。如果将异步换成同步的，就比需要等待嵌套任务执行完成才回去通知。</p>
 </blockquote>
-<p>ABC 同步任务 d 在 abc 执行后执行<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/zw3Ko7.jpg" alt="zw3Ko7"><br>如果是异步分发同步任务 ABC（等同步执行完）执行 D，可以使用 GCD group 与 group<em>notify。或者 NSBlockOperation 依赖解决。以及栅栏函数 dispatch_barrier</em>(a)sync。<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/isuPHV.jpg" alt="isuPHV"><br>dispatch<em>barrier_async<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/OzlGbN.jpg" alt="OzlGbN"><br>dispatch_barrier</em>(a)sync 其中需要在新并行队列执行，异步栅栏函数或者同步栅栏函数就定了在执行栅栏函数内 block 是否要等待结果。<a href="https://www.jianshu.com/p/e4d5b26b6a36" target="_blank" rel="external">参考</a></p>
+<p>ABC 同步任务 d 在 abc 执行后执行<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/zw3Ko7.jpg" alt="zw3Ko7"><br>如果是异步分发同步任务 ABC（等同步执行完）执行 D，可以使用 GCD group 与 group<em>notify。或者 NSBlockOperation 依赖解决。以及栅栏函数 dispatch_barrier</em>(a)sync。<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/isuPHV.jpg" alt="isuPHV"><br>dispatch<em>barrier_async<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/OzlGbN.jpg" alt="OzlGbN"><br>dispatch_barrier</em>(a)sync 其中需要在新并行队列执行，异步栅栏函数或者同步栅栏函数就定了在执行栅栏函数内 block 是否要等待结果。<a href="https://www.jianshu.com/p/e4d5b26b6a36" target="_blank" rel="noopener">参考</a></p>
 <blockquote>
 <p>在同步栅栏时栅栏函数在主线程中执行,而异步栅栏中开辟了子线程栅栏函数在子线程中执行</p>
 </blockquote>
@@ -445,7 +445,7 @@ height:30vh;
 <li>并发编程中，一般会面对这样的三个问题：竞态条件、优先倒置、死锁问题。</li>
 </ul>
 <h5 id="使用-tip"><a href="#使用-tip" class="headerlink" title="使用 tip"></a>使用 tip</h5><p>gcd 队列，异步同步，信号量，锁，栅栏函数，一次性代码，延迟执行，定时器。</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://blog.csdn.net/Deft_MKJing/article/details/51518556" target="_blank" rel="external">https://blog.csdn.net/Deft_MKJing/article/details/51518556</a><br><a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="external">https://www.jianshu.com/p/51fd1362249e</a></p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://blog.csdn.net/Deft_MKJing/article/details/51518556" target="_blank" rel="noopener">https://blog.csdn.net/Deft_MKJing/article/details/51518556</a><br><a href="https://www.jianshu.com/p/51fd1362249e" target="_blank" rel="noopener">https://www.jianshu.com/p/51fd1362249e</a></p>
 
     </article>
     <!-- license  -->
@@ -565,10 +565,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -847,6 +843,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -855,8 +855,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -871,6 +871,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -879,20 +883,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>

@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>kvo · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -407,11 +407,11 @@ height:30vh;
 <h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><ul>
 <li>注册一个监听（指定观察者，以及要观察的属性）</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">options: 有4个值，分别是：</div><div class="line">NSKeyValueObservingOptionOld 把更改之前的值提供给处理方法</div><div class="line">NSKeyValueObservingOptionNew 把更改之后的值提供给处理方法</div><div class="line">NSKeyValueObservingOptionInitial 把初始化的值提供给处理方法，一旦注册，立马就会调用一次。通常它会带有新值，而不会带有旧值。</div><div class="line">NSKeyValueObservingOptionPrior 分2次调用。在值改变之前和值改变之后。</div><div class="line"> */</div><div class="line"><span class="comment">//注册一个监听器用于监听指定的key路径</span></div><div class="line">[<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">options: 有4个值，分别是：</span></span><br><span class="line"><span class="comment">NSKeyValueObservingOptionOld 把更改之前的值提供给处理方法</span></span><br><span class="line"><span class="comment">NSKeyValueObservingOptionNew 把更改之后的值提供给处理方法</span></span><br><span class="line"><span class="comment">NSKeyValueObservingOptionInitial 把初始化的值提供给处理方法，一旦注册，立马就会调用一次。通常它会带有新值，而不会带有旧值。</span></span><br><span class="line"><span class="comment">NSKeyValueObservingOptionPrior 分2次调用。在值改变之前和值改变之后。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//注册一个监听器用于监听指定的key路径</span></span><br><span class="line">[<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
 <ul>
 <li>实现一个协议方法（响应）</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当key路径对应的属性值发生改变时，监听器就会回调自身的监听方法，如下</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath</div><div class="line">                      ofObject:(<span class="keyword">id</span>)object</div><div class="line">                        change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change</div><div class="line">                       context:(<span class="keyword">void</span> *)contex</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当key路径对应的属性值发生改变时，监听器就会回调自身的监听方法，如下</span></span><br><span class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath</span><br><span class="line">                      ofObject:(<span class="keyword">id</span>)object</span><br><span class="line">                        change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change</span><br><span class="line">                       context:(<span class="keyword">void</span> *)contex</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="kvo-使用场景"><a href="#kvo-使用场景" class="headerlink" title="kvo 使用场景"></a>kvo 使用场景</h5><ul>
 <li>数据保存实时性（例如 user）</li>
 <li>对象属性触发某个操作（滑动）</li>
@@ -423,7 +423,7 @@ height:30vh;
 </blockquote>
 </li>
 </ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://juejin.im/post/5a31439af265da431e16c3fc#heading-8" target="_blank" rel="external">掘金</a></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://juejin.im/post/5a31439af265da431e16c3fc#heading-8" target="_blank" rel="noopener">掘金</a></p>
 
     </article>
     <!-- license  -->
@@ -543,10 +543,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -825,6 +821,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -833,8 +833,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -849,6 +849,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -857,20 +861,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>

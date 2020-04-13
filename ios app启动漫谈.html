@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>ios app启动漫谈 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -405,9 +405,9 @@ height:30vh;
 <h4 id="main-执行前的过程-T1"><a href="#main-执行前的过程-T1" class="headerlink" title="main 执行前的过程 T1"></a>main 执行前的过程 T1</h4><p>可以通过 xcode 设置打印相应阶段耗时 设置方法：<br>只需要在 Edit scheme -&gt; Run -&gt; Environment Variables 中将环境变量 DYLD_PRINT_STATISTICS 设为 1，<br><img src="http:yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/6GChAQ.jpg" alt="6GChAQ"></p>
 <p>T1 过程是可执行文件(.o)和 Dyld 加载到内存。Dyld 进行动态链接。再执行一系列动态链接操作和初始化操作的过程（加载、绑定、及初始化方法） 上图打印的过程是 Dyld 加载到内存后的操作。这些操作是 Dyld 进行的。下图来说明 Dyld 做了哪些工作。<br><img src="http:yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/640.jpeg" alt="640"><br>这些过程是我们主要关注的，至于可执行文件与 Dyld 加载到内存我们不需要关心，这个是数据 copy 速度很快。</p>
 <h5 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h5><ul>
-<li>动态库数量（非系统动态库合并，最多 6 个）<a href="https://blog.automatic.com/how-we-cut-our-ios-apps-launch-time-in-half-with-this-one-cool-trick-7aca2011e2ea" target="_blank" rel="external">合并动态库方法</a></li>
+<li>动态库数量（非系统动态库合并，最多 6 个）<a href="https://blog.automatic.com/how-we-cut-our-ios-apps-launch-time-in-half-with-this-one-cool-trick-7aca2011e2ea" target="_blank" rel="noopener">合并动态库方法</a></li>
 <li>objc 类，方法 数量减少<blockquote>
-<p><strong>TEXT:</strong>objc_methname:中包含了代码中的所有方法，而<strong>DATA</strong>objc_selrefs 中则包含了所有被使用的方法的引用，通过取两个集合的差集就可以得到所有未被使用的代码。可以<a href="https://github.com/nst/objc_cover" target="_blank" rel="external">objc_cover</a>中的方法。</p>
+<p><strong>TEXT:</strong>objc_methname:中包含了代码中的所有方法，而<strong>DATA</strong>objc_selrefs 中则包含了所有被使用的方法的引用，通过取两个集合的差集就可以得到所有未被使用的代码。可以<a href="https://github.com/nst/objc_cover" target="_blank" rel="noopener">objc_cover</a>中的方法。</p>
 </blockquote>
 </li>
 <li>load 方法减少或者用+initialize() 代替。</li>
@@ -423,8 +423,8 @@ height:30vh;
 <li>组件话的话使用 自动注册启动。</li>
 </ul>
 <h4 id="首屏页面的加载和渲染-T3-阶段"><a href="#首屏页面的加载和渲染-T3-阶段" class="headerlink" title="首屏页面的加载和渲染 T3 阶段"></a>首屏页面的加载和渲染 T3 阶段</h4><p>主界面的构建，例如 TabBarVC，HomeVC 等等，网络资源的加载，如图片 I/O、图片解码、控件的布局。可以查看主线程上这些方法的执行时间了解哪些方法耗时多，然后进行优化。</p>
-<h5 id="Time-Profiler"><a href="#Time-Profiler" class="headerlink" title="Time Profiler"></a>Time Profiler</h5><p>Time Profiler 是 Xcode 自带的时间性能分析工具，它按照固定的时间间隔来跟踪每一个线程的堆栈信息，通过统计比较时间间隔之间的堆栈状态，来推算某个方法执行了多久，并获得一个近似值。就是或者方法的执行时间。<a href="https://www.raywenderlich.com/397-instruments-tutorial-with-swift-getting-started" target="_blank" rel="external">Time Profiler 使用</a></p>
-<p>小结：定时抓取主线程上的方法调用堆栈，计算一段时间里各个方法的耗时原因，自己可以实现相应功能的工具，集成到自己的 App 中，以便在真实环境中进行检查。或者利用<a href="https://github.com/facebook/fishhook" target="_blank" rel="external">fishhook</a>与 objc_msgSend 汇编相关知识实现耗时方法的打印。相关开源里使用<a href="https://github.com/ming1016/GCDFetchFeed" target="_blank" rel="external">GCDFetchFeed</a>中 SMCallTrace 部分。不止主页面其他页面的加载也可以使用它定位加载慢的问题。</p>
+<h5 id="Time-Profiler"><a href="#Time-Profiler" class="headerlink" title="Time Profiler"></a>Time Profiler</h5><p>Time Profiler 是 Xcode 自带的时间性能分析工具，它按照固定的时间间隔来跟踪每一个线程的堆栈信息，通过统计比较时间间隔之间的堆栈状态，来推算某个方法执行了多久，并获得一个近似值。就是或者方法的执行时间。<a href="https://www.raywenderlich.com/397-instruments-tutorial-with-swift-getting-started" target="_blank" rel="noopener">Time Profiler 使用</a></p>
+<p>小结：定时抓取主线程上的方法调用堆栈，计算一段时间里各个方法的耗时原因，自己可以实现相应功能的工具，集成到自己的 App 中，以便在真实环境中进行检查。或者利用<a href="https://github.com/facebook/fishhook" target="_blank" rel="noopener">fishhook</a>与 objc_msgSend 汇编相关知识实现耗时方法的打印。相关开源里使用<a href="https://github.com/ming1016/GCDFetchFeed" target="_blank" rel="noopener">GCDFetchFeed</a>中 SMCallTrace 部分。不止主页面其他页面的加载也可以使用它定位加载慢的问题。</p>
 <h4 id="优化-2"><a href="#优化-2" class="headerlink" title="优化"></a>优化</h4><ul>
 <li>串行改并行</li>
 <li>io 操作使用资源较小的代替</li>
@@ -434,7 +434,7 @@ height:30vh;
 <li>首页测试代码进行删除</li>
 </ul>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://tech.meituan.com/2018/12/06/waimai-ios-optimizing-startup.html" target="_blank" rel="external">美团外卖 iOS App 冷启动治理</a><br>-</li>
+<li><a href="https://tech.meituan.com/2018/12/06/waimai-ios-optimizing-startup.html" target="_blank" rel="noopener">美团外卖 iOS App 冷启动治理</a><br>-</li>
 </ul>
 
     </article>
@@ -550,10 +550,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -832,6 +828,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -840,8 +840,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -856,6 +856,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -864,20 +868,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>

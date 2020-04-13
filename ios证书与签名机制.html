@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>签名机制 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -466,13 +466,13 @@ InHouse。企业版发布，需$299才能拥有，还需邓氏编码
 <li>AppId.每个 app 必须在 MC 中创建一个对应的 AppId。规则不累述了。</li>
 <li>使用哪些证书。上面说了，不同类型的证书就代表了不同的发布方式，还包括一些功能的能否使用（比如 APN）</li>
 <li>功能授权列表</li>
-<li>可安装的设备列表。对于 AdHoc 方式发布的 app 或者真机调试时，会有一个列表，这个列表里面是 iOS 设备的 UDID，每台 iOS 设备出厂的 UDID 都不同，所以可以用来标识设备。可通过 iTunes 连接设备，或者<a href="http://fir.im/udid这里获取" target="_blank" rel="external">http://fir.im/udid这里获取</a></li>
+<li>可安装的设备列表。对于 AdHoc 方式发布的 app 或者真机调试时，会有一个列表，这个列表里面是 iOS 设备的 UDID，每台 iOS 设备出厂的 UDID 都不同，所以可以用来标识设备。可通过 iTunes 连接设备，或者<a href="http://fir.im/udid这里获取" target="_blank" rel="noopener">http://fir.im/udid这里获取</a></li>
 <li>苹果的签名</li>
 </ul>
 <h2 id="AdHoc-发布和真机调试"><a href="#AdHoc-发布和真机调试" class="headerlink" title="AdHoc 发布和真机调试"></a>AdHoc 发布和真机调试</h2><p>AdHoc 允许将测试版 app 发布给有限的设备安装，而无需通过 appstore 的审核。这里的关键是如何控制哪些设备可以装。答案就是 mobileprovision 文件，记得你在生成 mobileprovision 文件的时候需要选设备的 UDID 吧，所以这些设备需要事先添加到 MC 的 Devices 里面。对于开发时候的真机调试，原理差不多。都是通过 mobileprovision 的条目 4 来做到的。而苹果对于调试和测试用机的数量限制为 100 台！</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://foggry.com/blog/2014/10/16/ios-code-signing-xue-xi-bi-ji/" target="_blank" rel="external">iOS Code Signing 学习笔记</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html" target="_blank" rel="external">数字签名是什么？</a></li>
+<li><a href="http://foggry.com/blog/2014/10/16/ios-code-signing-xue-xi-bi-ji/" target="_blank" rel="noopener">iOS Code Signing 学习笔记</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html" target="_blank" rel="noopener">数字签名是什么？</a></li>
 </ul>
 
     </article>
@@ -593,10 +593,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -875,6 +871,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -883,8 +883,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -899,6 +899,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -907,20 +911,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>

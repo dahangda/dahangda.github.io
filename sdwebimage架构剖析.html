@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>SDWebImage系列之架构 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -418,7 +418,7 @@ height:30vh;
 <h4 id="模块之-webCache-Categories"><a href="#模块之-webCache-Categories" class="headerlink" title="模块之 webCache Categories"></a>模块之 webCache Categories</h4><ul>
 <li>UIkit 中的 uiview 作为 UIImageView 和 UIBtton 父类为其他子类提供便利方法来实现共用。uiview 的便利方法使用分类实现。</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//所有 View Category 的 setImageUrl；</span></div><div class="line">- (<span class="keyword">void</span>)sd_internalSetImageWithURL:(<span class="keyword">nullable</span> <span class="built_in">NSURL</span> *)url</div><div class="line">                  placeholderImage:(<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)placeholder</div><div class="line">                           options:(SDWebImageOptions)options</div><div class="line">                           context:(<span class="keyword">nullable</span> SDWebImageContext *)context</div><div class="line">                     setImageBlock:(<span class="keyword">nullable</span> SDSetImageBlock)setImageBlock</div><div class="line">                          progress:(<span class="keyword">nullable</span> SDImageLoaderProgressBlock)progressBlock</div><div class="line">                         completed:(<span class="keyword">nullable</span> SDInternalCompletionBlock)completedBlock;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所有 View Category 的 setImageUrl；</span></span><br><span class="line">- (<span class="keyword">void</span>)sd_internalSetImageWithURL:(<span class="keyword">nullable</span> <span class="built_in">NSURL</span> *)url</span><br><span class="line">                  placeholderImage:(<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)placeholder</span><br><span class="line">                           options:(SDWebImageOptions)options</span><br><span class="line">                           context:(<span class="keyword">nullable</span> SDWebImageContext *)context</span><br><span class="line">                     setImageBlock:(<span class="keyword">nullable</span> SDSetImageBlock)setImageBlock</span><br><span class="line">                          progress:(<span class="keyword">nullable</span> SDImageLoaderProgressBlock)progressBlock</span><br><span class="line">                         completed:(<span class="keyword">nullable</span> SDInternalCompletionBlock)completedBlock;</span><br></pre></td></tr></table></figure>
 <h4 id="主要模块"><a href="#主要模块" class="headerlink" title="主要模块"></a>主要模块</h4><ul>
 <li>SDWebImageCompat 做机型适配的。</li>
 <li>SDWebImageDownloader 异步下载器专用和优化图像加载。</li>
@@ -543,10 +543,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -825,6 +821,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -833,8 +833,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -849,6 +849,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -857,20 +861,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>

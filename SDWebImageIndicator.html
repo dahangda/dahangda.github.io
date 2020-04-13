@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>SDWebImageIndicator源码学习 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -407,11 +407,11 @@ height:30vh;
 <h4 id="我是前言"><a href="#我是前言" class="headerlink" title="我是前言"></a>我是前言</h4><ul>
 <li>SDWebImageIndicator 在图像加载期间定制指示器的协议。</li>
 </ul>
-<h4 id="判断平台"><a href="#判断平台" class="headerlink" title="判断平台"></a>判断平台</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#if SD_UIKIT || SD_MAC</span></div><div class="line"><span class="comment">//code...</span></div><div class="line"><span class="meta">#endif</span></div></pre></td></tr></table></figure>
+<h4 id="判断平台"><a href="#判断平台" class="headerlink" title="判断平台"></a>判断平台</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#if SD_UIKIT || SD_MAC</span></span><br><span class="line"><span class="comment">//code...</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果是 UIkit 平台以及 mac 会进行 code 的编译。</li>
 </ul>
-<h4 id="协议声明"><a href="#协议声明" class="headerlink" title="协议声明"></a>协议声明</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">SDWebImageIndicator</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@required</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> The view associate to the indicator.</div><div class="line"> @return The indicator view</div><div class="line"> */</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonnull</span>) <span class="built_in">UIView</span> *indicatorView;</div><div class="line"><span class="comment">/**</span></div><div class="line"> Start the animating for indicator.</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)startAnimatingIndicator;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> Stop the animating for indicator.</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)stopAnimatingIndicator;</div><div class="line"></div><div class="line"><span class="keyword">@optional</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> Update the loading progress (0-1.0) for indicator. Optional</div><div class="line"></div><div class="line"> @param progress The progress, value between 0 and 1.0</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)updateIndicatorProgress:(<span class="keyword">double</span>)progress;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h4 id="协议声明"><a href="#协议声明" class="headerlink" title="协议声明"></a>协议声明</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">SDWebImageIndicator</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@required</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> The view associate to the indicator.</span></span><br><span class="line"><span class="comment"> @return The indicator view</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonnull</span>) <span class="built_in">UIView</span> *indicatorView;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Start the animating for indicator.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)startAnimatingIndicator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Stop the animating for indicator.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)stopAnimatingIndicator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@optional</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Update the loading progress (0-1.0) for indicator. Optional</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param progress The progress, value between 0 and 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)updateIndicatorProgress:(<span class="keyword">double</span>)progress;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>这个协议也遵守了<nsobject>协议。</nsobject></li>
 <li>这个协议声明一个属性，但是这个属性在这个地方也只是方法声明。这个地方是生成了 get 方法。</li>
@@ -419,11 +419,11 @@ height:30vh;
 <h4 id="协议的实现"><a href="#协议的实现" class="headerlink" title="协议的实现"></a>协议的实现</h4><ul>
 <li>在 SDWebImageIndicator.h 文件里有一个类的声明，这个类遵循了 SDWebImageIndicator 协议。同时出现了和协议的属性名字是完全一样的属性名称 indicatorView。</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SDWebImageActivityIndicator</span> : <span class="title">NSObject</span> &lt;<span class="title">SDWebImageIndicator</span>&gt;</span></div><div class="line"></div><div class="line"><span class="meta">#if SD_UIKIT</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonnull</span>) <span class="built_in">UIActivityIndicatorView</span> *indicatorView;</div><div class="line"><span class="meta">#else</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonnull</span>) <span class="built_in">NSProgressIndicator</span> *indicatorView;</div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SDWebImageActivityIndicator</span> : <span class="title">NSObject</span> &lt;<span class="title">SDWebImageIndicator</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#if SD_UIKIT</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonnull</span>) <span class="built_in">UIActivityIndicatorView</span> *indicatorView;</span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonnull</span>) <span class="built_in">NSProgressIndicator</span> *indicatorView;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>上诉代码就是一个巧妙之处，一个协议里面的属性不是真正的属性，它只是方法声明，另一个巧妙之处是起到提醒遵守者你要有一个 indicatorView 属性哦。更牛的其实在后边。</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//.m 文件</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SDWebImageActivityIndicator</span> ()</span></div><div class="line"></div><div class="line"><span class="meta">#if SD_UIKIT</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonnull</span>) <span class="built_in">UIActivityIndicatorView</span> *indicatorView;</div><div class="line"><span class="meta">#else</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonnull</span>) <span class="built_in">NSProgressIndicator</span> *indicatorView;</div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.m 文件</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SDWebImageActivityIndicator</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#if SD_UIKIT</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonnull</span>) <span class="built_in">UIActivityIndicatorView</span> *indicatorView;</span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readwrite</span>, <span class="keyword">nonnull</span>) <span class="built_in">NSProgressIndicator</span> *indicatorView;</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>这个里面可以发现作者有扩展一个 indicatorView 属性，这是又是为什么呢，为了实现 indicatorView 属性的方法。同时 为了 SDWebImageActivityIndicator 初始化的时候使用到这个属性的 get 方法。</li>
 </ul>
@@ -438,7 +438,7 @@ height:30vh;
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
 <li>首先这个分类功能是快速建立 SDWebImageIndicator 对象。并使用这个对象。</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SDWebImageProgressIndicator</span> (<span class="title">Conveniences</span>)</span></div><div class="line"></div><div class="line"><span class="comment">/// default-style progress indicator</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">class</span>, <span class="keyword">nonnull</span>, <span class="keyword">readonly</span>) SDWebImageProgressIndicator *defaultIndicator;</div><div class="line"><span class="comment">/// bar-style progress indicator</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">class</span>, <span class="keyword">nonnull</span>, <span class="keyword">readonly</span>) SDWebImageProgressIndicator *barIndicator API_UNAVAILABLE(macos, tvos);</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SDWebImageProgressIndicator</span> (<span class="title">Conveniences</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// default-style progress indicator</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">class</span>, <span class="keyword">nonnull</span>, <span class="keyword">readonly</span>) SDWebImageProgressIndicator *defaultIndicator;</span><br><span class="line"><span class="comment">/// bar-style progress indicator</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">class</span>, <span class="keyword">nonnull</span>, <span class="keyword">readonly</span>) SDWebImageProgressIndicator *barIndicator API_UNAVAILABLE(macos, tvos);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ul>
 <li>首先这个类 SDWebImageIndicator 包括了协议，分类，以及 Progress Indicator 这个类。</li>
 <li>这个,h .m 文件有两个类因为功能相似所以放在一起，同时都遵循一样的协议，之所以这样写遵循一样的协议杜绝了两套方法声明。但是协议的实现还是要写的。</li>
@@ -451,8 +451,8 @@ height:30vh;
 <li>code 使用横向扩展方案，以后可以参考已经实现的扩展多个控件支持这个功能。</li>
 </ul>
 <h4 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h4><ul>
-<li><a href="https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.h" target="_blank" rel="external">https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.h</a></li>
-<li><a href="https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.m" target="_blank" rel="external">https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.m</a></li>
+<li><a href="https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.h" target="_blank" rel="noopener">https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.h</a></li>
+<li><a href="https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.m" target="_blank" rel="noopener">https://github.com/SDWebImage/SDWebImage/blob/master/SDWebImage/Core/SDWebImageIndicator.m</a></li>
 </ul>
 
     </article>
@@ -573,10 +573,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -855,6 +851,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -863,8 +863,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -879,6 +879,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -887,20 +891,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>

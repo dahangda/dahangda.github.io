@@ -10,9 +10,9 @@
 
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="author" content="燕 航">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="燕 航">
@@ -21,7 +21,7 @@
     
     <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>swiftUI初步探索 · 燕航的博客</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -412,7 +412,7 @@ height:30vh;
 <li>标签式的控件<br><img src="http://yanhangblogimage.oss-cn-beijing.aliyuncs.com/textimage/os8bgH.jpg" alt="os8bgH"></li>
 <li>状态绑定根据不同状态进行显示</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@<span class="type">State</span> <span class="keyword">var</span> name: <span class="type">String</span> = <span class="string">"Tom"</span></div><div class="line"><span class="keyword">var</span> body: some <span class="type">View</span> &#123;</div><div class="line">    <span class="type">Text</span>(<span class="string">"Hello \(name)"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">State</span> <span class="keyword">var</span> name: <span class="type">String</span> = <span class="string">"Tom"</span></span><br><span class="line"><span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">"Hello \(name)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>差分式的渲染方式<blockquote>
 <p>只渲染不一样的地方，并不会渲染整个页面，节省性能。</p>
@@ -422,7 +422,7 @@ height:30vh;
 <h4 id="swiftUI-结构解析"><a href="#swiftUI-结构解析" class="headerlink" title="swiftUI 结构解析"></a>swiftUI 结构解析</h4><ul>
 <li>首先看下面的 code</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ContentView</span>: <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> body: some <span class="type">View</span> &#123;</div><div class="line">        <span class="type">Text</span>(<span class="string">"Hello World"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//view是一个协议。</span></div><div class="line"><span class="comment">// var body: some View &#123;&#125;实现的是view协议的内容。</span></div><div class="line"><span class="comment">// some View 是用的swift5.1 特性。（约束类型Opaque Result Types）。</span></div><div class="line"><span class="comment">//some View的使用，使的每次 body 得到的一定是某一个确定的，遵守 View 协议的类型，但是请编译器“网开一面”，不要再细究具体的类型。返回类型确定单一这个条件十分重要。</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ContentView</span>: <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">"Hello World"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//view是一个协议。</span></span><br><span class="line"><span class="comment">// var body: some View &#123;&#125;实现的是view协议的内容。</span></span><br><span class="line"><span class="comment">// some View 是用的swift5.1 特性。（约束类型Opaque Result Types）。</span></span><br><span class="line"><span class="comment">//some View的使用，使的每次 body 得到的一定是某一个确定的，遵守 View 协议的类型，但是请编译器“网开一面”，不要再细究具体的类型。返回类型确定单一这个条件十分重要。</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>一句话：准守 view 协议，声明 body 属性，body 的类型采用的是约束类型（<code>some view</code>）</p>
 </blockquote>
@@ -430,29 +430,29 @@ height:30vh;
 <li>类似 flutter 与 reactNative 的 hotload。搭载系统的 swiftUI.framwork. 比 IBDesignable 性能要强。</li>
 <li>将对代码进行静态分析 (得益于 SwiftSyntax 框架)，找到所有遵守 PreviewProvider 协议的类型进行预览渲染。另外，你可以为这些预览提供合适的数据，这甚至可以让整个界面开发流程不需要实际运行 app 就能进行。</li>
 </ul>
-<h4 id="view-属性链式使用"><a href="#view-属性链式使用" class="headerlink" title="view 属性链式使用"></a>view 属性链式使用</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> body: some <span class="type">View</span> &#123;</div><div class="line">    <span class="type">Image</span>(<span class="string">"turtlerock"</span>)</div><div class="line">        .clipShape(<span class="type">Circle</span>())</div><div class="line">        .overlay(</div><div class="line">            <span class="type">Circle</span>().stroke(<span class="type">Color</span>.white, lineWidth: <span class="number">4</span>))</div><div class="line">        .shadow(radius: <span class="number">10</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="ViewBuilder"><a href="#ViewBuilder" class="headerlink" title="ViewBuilder"></a>ViewBuilder</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="type">VStack</span>(alignment: .leading)</div><div class="line">&#123;</div><div class="line"><span class="type">Text</span>(<span class="string">"Turtle Rock"</span>) .font(.title)</div><div class="line"><span class="type">Text</span>(<span class="string">"Joshua Tree National Park"</span>) .font(.subheadline)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 这里面vstack调用了初始化方法，将里面的控件包装为block，传入初始化方法。</span></div></pre></td></tr></table></figure>
+<h4 id="view-属性链式使用"><a href="#view-属性链式使用" class="headerlink" title="view 属性链式使用"></a>view 属性链式使用</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">    <span class="type">Image</span>(<span class="string">"turtlerock"</span>)</span><br><span class="line">        .clipShape(<span class="type">Circle</span>())</span><br><span class="line">        .overlay(</span><br><span class="line">            <span class="type">Circle</span>().stroke(<span class="type">Color</span>.white, lineWidth: <span class="number">4</span>))</span><br><span class="line">        .shadow(radius: <span class="number">10</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ViewBuilder"><a href="#ViewBuilder" class="headerlink" title="ViewBuilder"></a>ViewBuilder</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">VStack</span>(alignment: .leading)</span><br><span class="line">&#123;</span><br><span class="line"><span class="type">Text</span>(<span class="string">"Turtle Rock"</span>) .font(.title)</span><br><span class="line"><span class="type">Text</span>(<span class="string">"Joshua Tree National Park"</span>) .font(.subheadline)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这里面vstack调用了初始化方法，将里面的控件包装为block，传入初始化方法。</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>初始化方法</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">init</span>(</div><div class="line">    alignment: <span class="type">HorizontalAlignment</span> = .center,</div><div class="line">    spacing: <span class="type">Length</span>? = <span class="literal">nil</span>,</div><div class="line">    @<span class="type">ViewBuilder</span> content: () -&gt; <span class="type">Content</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>(</span><br><span class="line">    alignment: <span class="type">HorizontalAlignment</span> = .center,</span><br><span class="line">    spacing: <span class="type">Length</span>? = <span class="literal">nil</span>,</span><br><span class="line">    @<span class="type">ViewBuilder</span> content: () -&gt; <span class="type">Content</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>不能接受命令式的代码</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="type">VStack</span>(alignment: .leading) &#123;</div><div class="line">    <span class="comment">// let 语句无法通过 function builder 创建合适的输出</span></div><div class="line">    <span class="keyword">let</span> someCondition = model.condition</div><div class="line">    <span class="keyword">if</span> someCondition &#123;</div><div class="line">        <span class="type">Text</span>(<span class="string">"Condition"</span>)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="type">Text</span>(<span class="string">"Not Condition"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="State-和-Binding"><a href="#State-和-Binding" class="headerlink" title="@State 和 Binding"></a>@State 和 Binding</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@propertyWrapper <span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">State</span>&lt;<span class="title">Value</span>&gt; : <span class="title">DynamicViewProperty</span>, <span class="title">BindingConvertible</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/// Initialize with the provided initial value.</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(initialValue value: <span class="type">Value</span>)</div><div class="line"></div><div class="line">    <span class="comment">/// The current state value.</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> value: <span class="type">Value</span> &#123; <span class="keyword">get</span> <span class="keyword">nonmutating</span> <span class="keyword">set</span> &#125;</div><div class="line"></div><div class="line">    <span class="comment">/// Returns a binding referencing the state value.</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> binding: <span class="type">Binding</span>&lt;<span class="type">Value</span>&gt; &#123; <span class="keyword">get</span> &#125;</div><div class="line"></div><div class="line">    <span class="comment">/// Produces the binding referencing this state value</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> delegateValue: <span class="type">Binding</span>&lt;<span class="type">Value</span>&gt; &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">    <span class="comment">// let 语句无法通过 function builder 创建合适的输出</span></span><br><span class="line">    <span class="keyword">let</span> someCondition = model.condition</span><br><span class="line">    <span class="keyword">if</span> someCondition &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">"Condition"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">"Not Condition"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="State-和-Binding"><a href="#State-和-Binding" class="headerlink" title="@State 和 Binding"></a>@State 和 Binding</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@propertyWrapper <span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">State</span>&lt;<span class="title">Value</span>&gt; : <span class="title">DynamicViewProperty</span>, <span class="title">BindingConvertible</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Initialize with the provided initial value.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(initialValue value: <span class="type">Value</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// The current state value.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> value: <span class="type">Value</span> &#123; <span class="keyword">get</span> <span class="keyword">nonmutating</span> <span class="keyword">set</span> &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Returns a binding referencing the state value.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> binding: <span class="type">Binding</span>&lt;<span class="type">Value</span>&gt; &#123; <span class="keyword">get</span> &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Produces the binding referencing this state value</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> delegateValue: <span class="type">Binding</span>&lt;<span class="type">Value</span>&gt; &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>@State 它修饰的 struct 可以变成一个新的修饰符并作用在其他代码上，来改变这些代码默认的行为。</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="type">State</span> <span class="keyword">var</span> showFavoritesOnly = <span class="literal">true</span></div><div class="line"><span class="comment">// var showFavoritesOnly = State(initialValue: true)</span></div><div class="line"><span class="keyword">var</span> body: some <span class="type">View</span> &#123;</div><div class="line">    <span class="type">NavigationView</span> &#123;</div><div class="line">        <span class="type">List</span> &#123;</div><div class="line">        <span class="comment">// Toggle(isOn: showFavoritesOnly.binding)</span></div><div class="line">            <span class="type">Toggle</span>(isOn: $showFavoritesOnly) &#123;</div><div class="line">                <span class="type">Text</span>(<span class="string">"Favorites only"</span>)</div><div class="line">            &#125;</div><div class="line">    <span class="comment">//...</span></div><div class="line">            <span class="keyword">if</span> !<span class="keyword">self</span>.showFavoritesOnly || landmark.isFavorite &#123;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">State</span> <span class="keyword">var</span> showFavoritesOnly = <span class="literal">true</span></span><br><span class="line"><span class="comment">// var showFavoritesOnly = State(initialValue: true)</span></span><br><span class="line"><span class="keyword">var</span> body: some <span class="type">View</span> &#123;</span><br><span class="line">    <span class="type">NavigationView</span> &#123;</span><br><span class="line">        <span class="type">List</span> &#123;</span><br><span class="line">        <span class="comment">// Toggle(isOn: showFavoritesOnly.binding)</span></span><br><span class="line">            <span class="type">Toggle</span>(isOn: $showFavoritesOnly) &#123;</span><br><span class="line">                <span class="type">Text</span>(<span class="string">"Favorites only"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">            <span class="keyword">if</span> !<span class="keyword">self</span>.showFavoritesOnly || landmark.isFavorite &#123;</span><br></pre></td></tr></table></figure>
 <h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><blockquote>
 <p>1.直接在 View 上使用 .animation modifier 2.使用 withAnimation { } 来控制某个 State，进而触发动画。</p>
 </blockquote>
-<h5 id="以-modifier-形式实现，与-modifier-顺序有关。"><a href="#以-modifier-形式实现，与-modifier-顺序有关。" class="headerlink" title="以 modifier 形式实现，与 modifier 顺序有关。"></a>以 modifier 形式实现，与 modifier 顺序有关。</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="type">Button</span>(action: &#123;</div><div class="line">    <span class="keyword">self</span>.showDetail.toggle()</div><div class="line">&#125;) &#123;</div><div class="line">    <span class="type">Image</span>(systemName: <span class="string">"chevron.right.circle"</span>)</div><div class="line">        .imageScale(.large)</div><div class="line">        .rotationEffect(.degrees(showDetail ? <span class="number">90</span> : <span class="number">0</span>))</div><div class="line">        .animation(<span class="literal">nil</span>)</div><div class="line">        .scaleEffect(showDetail ? <span class="number">1.5</span> : <span class="number">1</span>)</div><div class="line">        .padding()</div><div class="line">        .animation(.spring())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="以-modifier-形式实现，与-modifier-顺序有关。"><a href="#以-modifier-形式实现，与-modifier-顺序有关。" class="headerlink" title="以 modifier 形式实现，与 modifier 顺序有关。"></a>以 modifier 形式实现，与 modifier 顺序有关。</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Button</span>(action: &#123;</span><br><span class="line">    <span class="keyword">self</span>.showDetail.toggle()</span><br><span class="line">&#125;) &#123;</span><br><span class="line">    <span class="type">Image</span>(systemName: <span class="string">"chevron.right.circle"</span>)</span><br><span class="line">        .imageScale(.large)</span><br><span class="line">        .rotationEffect(.degrees(showDetail ? <span class="number">90</span> : <span class="number">0</span>))</span><br><span class="line">        .animation(<span class="literal">nil</span>)</span><br><span class="line">        .scaleEffect(showDetail ? <span class="number">1.5</span> : <span class="number">1</span>)</span><br><span class="line">        .padding()</span><br><span class="line">        .animation(.spring())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="withAnimation"><a href="#withAnimation" class="headerlink" title="withAnimation"></a>withAnimation</h5><blockquote>
 <p>withAnimation { } 是一个顶层函数，在闭包内部，我们一般会触发某个 State 的变化，并让 View.body 进行重新计算：</p>
 </blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="type">Button</span>(action: &#123;</div><div class="line">    withAnimation &#123;</div><div class="line">        <span class="keyword">self</span>.showDetail.toggle()</div><div class="line">    &#125;</div><div class="line">&#125;) &#123;</div><div class="line">  <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Button</span>(action: &#123;</span><br><span class="line">    withAnimation &#123;</span><br><span class="line">        <span class="keyword">self</span>.showDetail.toggle()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;) &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="关于-View-的生命周期"><a href="#关于-View-的生命周期" class="headerlink" title="关于 View 的生命周期"></a>关于 View 的生命周期</h4><blockquote>
 <p>虽然有生命周期函数，并且这些函数也是在 modifier 的方式使用，但是更通用的事件响应 hook 是 .onReceive(_:perform:)。它定义了一个可以响应目标 Publisher 的任意的 View，一旦订阅的 Publisher 发出新的事件时，onReceive 就将被调用。</p>
 </blockquote>
@@ -575,10 +575,6 @@ top:30vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -857,6 +853,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>protocol</span
     >
     
+    <span class="sidebar-tag-name" data-tags="block"
+      ><span class="iconfont-archer">&#xe606;</span>block</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="gcd"
       ><span class="iconfont-archer">&#xe606;</span>gcd</span
     >
@@ -865,8 +865,8 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>https</span
     >
     
-    <span class="sidebar-tag-name" data-tags="block"
-      ><span class="iconfont-archer">&#xe606;</span>block</span
+    <span class="sidebar-tag-name" data-tags="优化"
+      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
     <span class="sidebar-tag-name" data-tags="签名"
@@ -881,6 +881,10 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>swiftUI</span
     >
     
+    <span class="sidebar-tag-name" data-tags="KVO"
+      ><span class="iconfont-archer">&#xe606;</span>KVO</span
+    >
+    
     <span class="sidebar-tag-name" data-tags="UIkit"
       ><span class="iconfont-archer">&#xe606;</span>UIkit</span
     >
@@ -889,20 +893,12 @@ top:30vh;
       ><span class="iconfont-archer">&#xe606;</span>runtime</span
     >
     
-    <span class="sidebar-tag-name" data-tags="KVO"
-      ><span class="iconfont-archer">&#xe606;</span>KVO</span
-    >
-    
     <span class="sidebar-tag-name" data-tags="SDWebImge"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImge</span
     >
     
     <span class="sidebar-tag-name" data-tags="SDWebImageManager"
       ><span class="iconfont-archer">&#xe606;</span>SDWebImageManager</span
-    >
-    
-    <span class="sidebar-tag-name" data-tags="优化"
-      ><span class="iconfont-archer">&#xe606;</span>优化</span
     >
     
   </div>
