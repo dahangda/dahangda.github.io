@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
     <!-- title -->
-   
+
+
+
+
 <!-- keywords -->
-   
+
+
+
+
 <head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no"
-  />
-  <meta name="author" content="燕 航" />
-  <meta name="renderer" content="webkit" />
-  <meta name="copyright" content="燕 航" />
-  <meta
-    name="google-site-verification"
-    content="m4GScd5DAOQvNCCdr0twJ0Z8K5IRjxyR-ngaYDGLZfE"
-  />
-  <meta name="baidu-site-verification" content="4FRaeEUwy6" />
-  
-  <meta name="keywords" content="SDWebImage,源码学习,工具开发,hexo,ios学习,燕航的博客,hexo-blog" />
-  
-  <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。" />
-  <meta http-equiv="Cache-control" content="no-cache" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>SDWebImage系列之架构 · 燕航的博客</title>
-  <style type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="燕 航">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="燕 航">
+    
+    <meta name="keywords" content="SDWebImage,源码学习,工具开发,hexo,ios学习,燕航的博客,hexo-blog">
+    
+    <meta name="description" content="擅长ios工具打磨，不断学习过程中，目前学习flutter，向全栈工程师靠拢。">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>SDWebImage系列之架构 · 燕航的博客</title>
+    <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
         src: url("/font/Oswald-Regular.ttf");
@@ -76,17 +74,13 @@
     }
 
 </style>
- <link rel="preload" href= "/css/style.css?v=20180824" as="style"
-  onload="this.onload=null;this.rel='stylesheet'" /> <link rel="stylesheet"
-  href= "/css/mobile.css?v=20180824" media="(max-width:
-  980px)"> 
-  <link
-    rel="preload"
-    href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'"
-  />
-   <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
 - enabling async CSS loading in browsers that do not support rel=preload
@@ -193,40 +187,19 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-  <link rel="icon" href="/assets/favicon.ico" />
-  <link
-    rel="preload"
-    href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js"
-    as="script"
-  />
-  <link
-    rel="preload"
-    href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
-    as="script"
-  />
-  <link rel="preload" href="/scripts/main.js" as="script" />
-  <link
-    rel="preload"
-    as="font"
-    href="/font/Oswald-Regular.ttf"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff"
-    crossorigin
-  />
-  
-  <!-- fancybox -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"
-    defer
-  ></script>
-  <!-- 百度统计  -->
-  
-  <!-- 谷歌统计  -->
-  
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
 </head>
 
     
