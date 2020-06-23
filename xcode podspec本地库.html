@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >燕航的博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name"></a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>燕航的博客</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:30vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            [Untitled Post]
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">328</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/06/23</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,40 +393,81 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/ios证书与签名机制.html" >
-            
-                <span>签名机制</span>
-        </a>
-        <div class="abstract-content">
-            我是前言
-签名机制需要了解 非对称加密，摘要，数字签名，证书概念非对称加密解决数据传递的保密性...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/10/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "签名">签名</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>解决无网络状态下无 pod 库以及库不一致问题。省去下载，安全问题。</p>
+<h4 id="pod-库地址"><a href="#pod-库地址" class="headerlink" title="pod 库地址"></a>pod 库地址</h4><p>使用../ 来找到相应地址。用以引用头文件。</p>
+<h4 id="库的制作"><a href="#库的制作" class="headerlink" title="库的制作"></a>库的制作</h4><ul>
+<li>暴露 文件（引用使用）</li>
+<li>隐藏 文件 （.m 文件，静态库等）</li>
+<li>资源 文件</li>
+<li>podspec 文件</li>
+</ul>
+<h4 id="podspec"><a href="#podspec" class="headerlink" title="podspec"></a>podspec</h4><p>为方便 pod install 运行时，能引用到相应的文件的一个配置文件，方便项目引用。常用的配置项是暴露的.h 文件。外界库文件的引用，系统库的引用（framework，.a ）。</p>
+<ul>
+<li>vendored_libraries 是引用外界静态库，配置项 Libraries 为 podspec 同层下。<blockquote>
+<p>s.vendored_libraries = ‘Libraries/libMasonry.a’</p>
+</blockquote>
+</li>
+<li>vendored_frameworks：配置需要引用的非系统框架（*<em>/</em>的写法后面不再赘述）<blockquote>
+<p>vendored_frameworks = ‘Frameworks/MyFramework.framework’</p>
+</blockquote>
+</li>
+<li>source_files 是引用所有源文件配置项，一般是.h 文件与.m 文件。<blockquote>
+<p>s.source_files = ‘Headers/*_/_.{h}’ - s.frameworks 是系统的 framework 配置项。<br>s.frameworks = “MobileCoreServices”, “SystemConfiguration”, ‘AVFoundation’, ‘CoreTelephony’, ‘CoreMedia’, ‘AudioToolbox’, ‘VideoToolbox’</p>
+</blockquote>
+</li>
+<li>s.libraries 配置系统提供的一些库，比如我们要引用 libz.tbd 等，我们需要如下配置写法。<blockquote>
+<p>s.libraries = “c++”, “sqlite3.0”, “z”</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="frameworks-与-a-文件"><a href="#frameworks-与-a-文件" class="headerlink" title="frameworks 与.a 文件"></a>frameworks 与.a 文件</h4><p>frameworks 与 可以理解为一个框架，这个框架包括.h .a 资源文件三部分。.a 是.m 文件的封装。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://guides.cocoapods.org/" target="_blank" rel="noopener">引用参考</a><br><a href="https://www.jianshu.com/p/a23397065e40" target="_blank" rel="noopener">简书文章 1</a><br><a href="https://www.jianshu.com/p/0005adb0b452" target="_blank" rel="noopener">简书文章 2</a></p>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://dahangda.github.io">燕 航</a>
+            <p>原文链接：<a href="https://dahangda.github.io/xcode podspec本地库.html">https://dahangda.github.io/xcode podspec本地库.html</a>
+            <p>发表日期：<a href="https://dahangda.github.io/xcode podspec本地库.html">June 23rd 2020, 10:40:31 pm</a>
+            <p>更新日期：<a href="https://dahangda.github.io/xcode podspec本地库.html">June 23rd 2020, 10:40:32 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS的Crash防护策略.html" title= "iOS的Crash防护策略">
+                    <div class="prevTitle">iOS的Crash防护策略</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -413,6 +509,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:30vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pod-库地址"><span class="toc-number">2.</span> <span class="toc-text">pod 库地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#库的制作"><span class="toc-number">3.</span> <span class="toc-text">库的制作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#podspec"><span class="toc-number">4.</span> <span class="toc-text">podspec</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#frameworks-与-a-文件"><span class="toc-number">5.</span> <span class="toc-text">frameworks 与.a 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -873,6 +987,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
